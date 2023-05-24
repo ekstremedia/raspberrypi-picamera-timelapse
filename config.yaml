@@ -1,4 +1,4 @@
 camera:
   resolution: [ 1920, 1080 ] # the resolution for the camera
   framerate: 30            # the framerate for the camera
-  mock_camera: true        # use mock camera (set to false for real camera)
+  mock_camera: false       # use mock camera (set to false for real camera)
