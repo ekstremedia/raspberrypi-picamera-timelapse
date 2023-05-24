@@ -9,6 +9,6 @@ class Camera:
         self.camera.framerate = framerate
 
     def record(self, duration):
-        self.camera.start_recording('/home/pi/video.h264')
+        self.camera.start_recording('./video.h264')
         sleep(duration)  # recording duration
         self.camera.stop_recording()
