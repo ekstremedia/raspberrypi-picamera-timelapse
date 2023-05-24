@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.10
 import yaml
 from colorama import Fore, Style
 import logging
