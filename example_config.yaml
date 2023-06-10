@@ -1,0 +1,12 @@
+
+camera_name: 'Kringelen'
+main_size: [1920, 1080]
+lores_size: [640, 480]
+display: 'main'
+awb_enable: False
+awb_mode: 'Daylight'
+colour_gains: [2.1, 1.5]
+image_output: '/var/www/html/images/'
+filename_prefix: 'timelapse_'
+interval: 60
+status_file: '/var/www/html/status.jpg'

@@ -1,12 +1,13 @@
-#!/usr/bin/python
 from PIL import Image, ImageDraw, ImageFont
 import yaml
 import time
 import math
+import shutil
 
 def load_config(config_path):
     with open(config_path, 'r') as config_file:
-        return yaml.safe_load(config_file)
+        config = yaml.safe_load(config_file)
+    return config
 
 def add_overlay(config, image_path):
     # Open the image file
@@ -21,7 +22,7 @@ def add_overlay(config, image_path):
     # Draw the gradient
     draw = ImageDraw.Draw(new_img)
     for y in range(80):
-        r, g, b = 0, 0, 128 + int((64 / 80) * y)  # Calculate the blue value for the gradient
+        r, g, b = 0, 0, 40 + int((64 / 80) * y)  # Calculate the blue value for the gradient
         draw.line([(0, y), (width, y)], fill=(r, g, b))
 
     # Draw the overlay
@@ -29,14 +30,16 @@ def add_overlay(config, image_path):
     text = f"{config['camera_name']}"
     text_width, text_height = draw.textsize(text, font=font)
     text_x = (width - text_width) // 2 + 20  # Adjust the text position to the right
-    draw.text((text_x, 10), text, font=font, fill=(255, 255, 255))  # Center the camera name vertically
+    text_y = 5  # Adjust the camera name vertical position (increase for moving up)
+    draw.text((text_x, text_y), text, font=font, fill=(255, 255, 255))  # Center the camera name vertically
 
     # Draw the date
     date_text = time.strftime('%Y-%m-%d %H:%M:%S')
     date_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 20)
     date_width, date_height = draw.textsize(date_text, font=date_font)
     date_x = (width - date_width) // 2 + 20  # Adjust the date position to the right
-    draw.text((date_x, 55), date_text, font=date_font, fill=(255, 255, 255))  # Center the date vertically
+    date_y = 48
+    draw.text((date_x, date_y), date_text, font=date_font, fill=(255, 255, 255))  # Center the date vertically
 
     # Load the weather icon image and convert it to RGBA mode
     weather_icon_path = '/home/pi/raspberrypi-picamera-timelapse/yrimg/01d.png'  # Replace with the path to the weather icon image
@@ -74,7 +77,7 @@ def add_overlay(config, image_path):
     draw.text((data_x, data_y + data_spacing), wind_line, font=data_font, fill=(255, 255, 255))
     draw.text((data_x, data_y + 2 * data_spacing), f"Rain: {rain}", font=data_font, fill=(255, 255, 255))
 
-    arrow_x = data_x + draw.textsize(wind_line)[0] + 70  # Position the arrow at the end of the wind line
+    arrow_x = data_x + draw.textsize(wind_line, font=data_font)[0] + 70  # Position the arrow at the end of the wind line
     arrow_y = data_y + data_spacing + 12  # Move the arrow down slightly
 
     # Draw the wind direction arrow
@@ -109,6 +112,10 @@ def add_overlay(config, image_path):
 
     # Save the new image
     new_img.save(image_path)
+
+    # Copy and overwrite the image to the status file
+    status_file = config['status_file']
+    shutil.copy2(image_path, status_file)
 
 if __name__ == "__main__":
     import sys
