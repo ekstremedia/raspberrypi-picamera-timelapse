@@ -25,7 +25,7 @@ def add_overlay(config, image_path):
         draw.line([(0, y), (width, y)], fill=(r, g, b))
 
     # Draw the overlay
-    font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 36)  # Decrease the font size to 36
+    font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 30)  # Decrease the font size to 36
     text = f"{config['camera_name']}"
     text_width, text_height = draw.textsize(text, font=font)
     text_x = (width - text_width) // 2 + 20  # Adjust the text position to the right
@@ -38,17 +38,25 @@ def add_overlay(config, image_path):
     date_x = (width - date_width) // 2 + 20  # Adjust the date position to the right
     draw.text((date_x, 55), date_text, font=date_font, fill=(255, 255, 255))  # Center the date vertically
 
-    # Load the weather icon image and resize it
+    # Load the weather icon image and convert it to RGBA mode
     weather_icon_path = '/home/pi/raspberrypi-picamera-timelapse/yrimg/01d.png'  # Replace with the path to the weather icon image
-    weather_icon = Image.open(weather_icon_path)
-    weather_icon = weather_icon.resize((60, 60))  # Adjust the size of the weather icon
+    weather_icon = Image.open(weather_icon_path).convert('RGBA')
+
+    # Create a blank image with a transparent background
+    transparent_icon = Image.new('RGBA', weather_icon.size, (255, 255, 255, 0))
+
+    # Composite the weather icon on the transparent background
+    transparent_icon.paste(weather_icon, (0, 0), weather_icon)
+
+    # Resize the transparent weather icon
+    transparent_icon = transparent_icon.resize((60, 60))
 
     # Calculate the position for the weather icon
     icon_x = 10
-    icon_y = (80 - weather_icon.height) // 2  # Center the icon vertically
+    icon_y = (80 - transparent_icon.height) // 2  # Center the icon vertically
 
-    # Overlay the weather icon
-    new_img.paste(weather_icon, (icon_x, icon_y))
+    # Overlay the transparent weather icon
+    new_img.paste(transparent_icon, (icon_x, icon_y), transparent_icon)
 
     # Draw the weather data
     data_x = 80  # X coordinate for the weather data
@@ -98,8 +106,6 @@ def add_overlay(config, image_path):
     y3_abs = y3 - arrow_length
 
     draw.polygon([(x1_abs, y1_abs), (x2_abs, y2_abs), (x3_abs, y3_abs)], fill=(255, 255, 255))
-
-
 
     # Save the new image
     new_img.save(image_path)
