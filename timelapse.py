@@ -1,36 +1,19 @@
+#!/usr/bin/python
+import time
 import yaml
-from colorama import Fore, Style
-import logging
+import subprocess
 
+def load_config(config_path):
+    with open(config_path, 'r') as config_file:
+        return yaml.safe_load(config_file)
 
-# Function to print and log messages
-def print_and_log(message, color=Fore.RESET):
-    print(color + message + Style.RESET_ALL)
-    logging.info(message)
-
-
-# Load the config file
-with open("config.yaml", 'r') as stream:
-    try:
-        print_and_log("Loading configuration...", Fore.YELLOW)
-        config = yaml.safe_load(stream)
-        print_and_log("Configuration loaded successfully.", Fore.GREEN)
-    except yaml.YAMLError as exc:
-        print_and_log(f"Error in configuration file: {exc}", Fore.RED)
-        exit(1)
-
-# Import the appropriate camera module based on the mock_camera config value
-if config['camera']['mock_camera']:
-    from mock_camera import MockCamera as Camera
-else:
-    from camera import Camera
-
-# Setup logging
-logging.basicConfig(filename='timelapse.log', level=logging.INFO)
+def timelapse(config):
+    interval = config['interval']
+    while True:
+        subprocess.run(['python', '/home/pi/raspberrypi-picamera-timelapse/pc.py'])
+        time.sleep(interval)
 
 if __name__ == "__main__":
-    # Initialize and start recording
-    camera = Camera(tuple(config['camera']['resolution']), config['camera']['framerate'])
-    print_and_log("Starting recording...", Fore.YELLOW)
-    camera.record(10)
-    print_and_log("Recording completed.", Fore.GREEN)
+    config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
+    timelapse(config)
+
