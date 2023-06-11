@@ -6,7 +6,34 @@ display: 'main'
 awb_enable: False
 awb_mode: 'Daylight'
 colour_gains: [2.1, 1.5]
-image_output: '/var/www/html/images/'
 filename_prefix: 'timelapse_'
 interval: 60
 status_file: '/var/www/html/status.jpg'
+
+# Timelapse ffmpeg settings
+framerate: 25
+bitrate: 44000
+video_format: mp4
+video_filename_prefix: 'timelapse_'
+
+
+# Image output
+image_output:
+  root_folder: '/var/www/html/images/'
+  folder_structure: '%Y/%m/%d/'
+  filename_prefix: 'kringelen_'
+
+# Timelapse output
+video_output:
+  root_folder: '/var/www/html/videos/'
+  folder_structure: '%Y/%m/'           # 2023/06/20/
+  filename_prefix: 'timelapse_'
+  video_width: 1920
+  video_height: 1080
+  video_quality: 23
+  
+debug_mode:
+  video_width: 640
+  video_height: 480
+  video_quality: 20
+

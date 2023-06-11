@@ -5,6 +5,7 @@ import time
 import datetime
 import yaml
 import sys
+from colored import fg, attr
 
 def load_config(config_path):
     with open(config_path, 'r') as config_file:
@@ -16,7 +17,7 @@ def create_timelapse(config, date=None, debug_mode=False):
         try:
             specified_date = datetime.datetime.strptime(date, '%Y/%m/%d').date()
         except ValueError:
-            print("Invalid date format. Please provide the date in the format 'YYYY/MM/DD'.")
+            log_message("Invalid date format. Please provide the date in the format 'YYYY/MM/DD'.")
             return
     else:
         specified_date = datetime.date.today() - datetime.timedelta(days=1)
@@ -32,7 +33,7 @@ def create_timelapse(config, date=None, debug_mode=False):
 
     # Check if the image folder exists
     if not os.path.exists(image_folder):
-        print(f"No images found for {specified_date_str}")
+        log_message(f"No images found for {specified_date_str}")
         return
 
     # Create the timelapse video folder if it doesn't exist
@@ -63,7 +64,7 @@ def create_timelapse(config, date=None, debug_mode=False):
         '-framerate', str(config['framerate']),
         '-pattern_type', 'glob',
         '-i', f"{os.path.join(image_folder, '*.jpg')}",
-        '-vf', f"minterpolate='mi_mode=mci:mc_mode=aobmc:me_mode=bidir:me=hex:me_range=16',deflicker",
+        '-vf', f"minterpolate='mi_mode=mci:mc_mode=aobmc:me_mode=bidir:me_range=16',deflicker",
         '-c:v', 'libx264',
         '-crf', str(video_quality),
         '-pix_fmt', 'yuv420p',
@@ -71,13 +72,32 @@ def create_timelapse(config, date=None, debug_mode=False):
         '-b:v', str(config['bitrate']),
         video_path
     ]
-    # Run the ffmpeg command
-    subprocess.run(ffmpeg_command, capture_output=True, text=True, check=True)
 
-    print(f"Timelapse video created: {video_path}")
+    log_message(f"{fg('green')}Starting timelapse...{attr('reset')}")
+
+    start_time = time.time()
+    output = subprocess.run(ffmpeg_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True)
+    end_time = time.time()
+
+    log_message(f"{fg('green')}Timelapse video created{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{video_path}{attr('reset')}")
+    log_message(f"{fg('green')}Duration{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{end_time - start_time:.2f} seconds")
+
+def log_message(*messages):
+    log_path = os.path.join('logs', 'timelapse.log')
+    log_dir = os.path.dirname(log_path)
+    os.makedirs(log_dir, exist_ok=True)
+
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    log_line = f"[{timestamp}] {' '.join(map(str, messages))}\n"
+
+    print(*messages)  # Print the messages with colors
+
+    with open(log_path, 'a') as log_file:
+        log_file.write(log_line)
 
 if __name__ == "__main__":
     config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
     date_arg = sys.argv[1] if len(sys.argv) > 1 else None
     debug_mode = sys.argv[2] == "debug" if len(sys.argv) > 2 else False
+
     create_timelapse(config, date_arg, debug_mode)
