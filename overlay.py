@@ -3,13 +3,16 @@ import yaml
 import time
 import math
 import shutil
+import json
+import sys
+from getWeather import get_weather_data
 
 def load_config(config_path):
     with open(config_path, 'r') as config_file:
         config = yaml.safe_load(config_file)
     return config
 
-def add_overlay(config, image_path):
+def add_overlay(config, image_path, weather_data):
     # Open the image file
     img = Image.open(image_path)
     width, height = img.size
@@ -66,49 +69,52 @@ def add_overlay(config, image_path):
     data_y = 11  # Y coordinate for the first line of weather data
     data_spacing = 22  # Spacing between each line of weather data
 
-    temperature = "10°C"
-    wind_speed = "2.5 m/s"
-    wind_direction = "214"
-    rain = "0 mm"
+    weather_data = json.loads(weather_data)
 
-    data_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 14)  # Decrease the font size to 14
-    draw.text((data_x, data_y), f"Temperature: {temperature}", font=data_font, fill=(255, 255, 255))
-    wind_line = f"Wind: {wind_speed} from {wind_direction}°"
-    draw.text((data_x, data_y + data_spacing), wind_line, font=data_font, fill=(255, 255, 255))
-    draw.text((data_x, data_y + 2 * data_spacing), f"Rain: {rain}", font=data_font, fill=(255, 255, 255))
+    if weather_data:
+        temperature = f"{weather_data['02:00:00:5f:3f:f8']['Temperature']}°C"
+        wind_speed = f"{weather_data['06:00:00:05:7b:ca']['WindStrength']} m/s"
+        wind_direction = weather_data['06:00:00:05:7b:ca']['WindAngle']
+        rain = f"{weather_data['05:00:00:06:5f:30']['Rain']} mm"
 
-    arrow_x = data_x + draw.textsize(wind_line, font=data_font)[0] + 70  # Position the arrow at the end of the wind line
-    arrow_y = data_y + data_spacing + 12  # Move the arrow down slightly
+        data_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 14)  # Decrease the font size to 14
+        draw.text((data_x, data_y), f"Temperature: {temperature}", font=data_font, fill=(255, 255, 255))
+        wind_line = f"Wind: {wind_speed} from {wind_direction}°"
+        draw.text((data_x, data_y + data_spacing), wind_line, font=data_font, fill=(255, 255, 255))
+        draw.text((data_x, data_y + 2 * data_spacing), f"Rain: {rain}", font=data_font, fill=(255, 255, 255))
 
-    # Draw the wind direction arrow
-    angle = math.radians(90 + int(wind_direction))  # Add 90 degrees to rotate clockwise
-    arrow_length = 20  # Adjust the length of the arrow
-    arrow_width = 6  # Adjust the width of the arrow
+        arrow_x = data_x + draw.textsize(wind_line, font=data_font)[0] + 70  # Position the arrow at the end of the wind line
+        arrow_y = data_y + data_spacing + 12  # Move the arrow down slightly
 
-    if wind_direction == "180":
-        arrow_y -= arrow_length
+        # Draw the wind direction arrow
+        angle = math.radians(90 + int(wind_direction))  # Add 90 degrees to rotate clockwise
+        arrow_length = 20  # Adjust the length of the arrow
+        arrow_width = 6  # Adjust the width of the arrow
 
-    # Calculate the center point of the arrow
-    center_x = arrow_x
-    center_y = arrow_y + arrow_length
+        if wind_direction == "180":
+            arrow_y -= arrow_length
 
-    # Calculate the coordinates of the arrow points relative to the center
-    x1 = center_x + arrow_length * math.cos(angle)
-    y1 = center_y + arrow_length * math.sin(angle)
-    x2 = center_x - arrow_width * math.cos(angle + math.pi / 2)
-    y2 = center_y - arrow_width * math.sin(angle + math.pi / 2)
-    x3 = center_x - arrow_width * math.cos(angle - math.pi / 2)
-    y3 = center_y - arrow_width * math.sin(angle - math.pi / 2)
+        # Calculate the center point of the arrow
+        center_x = arrow_x
+        center_y = arrow_y + arrow_length
 
-    # Translate the coordinates to the absolute positions
-    x1_abs = x1
-    y1_abs = y1 - arrow_length
-    x2_abs = x2
-    y2_abs = y2 - arrow_length
-    x3_abs = x3
-    y3_abs = y3 - arrow_length
+        # Calculate the coordinates of the arrow points relative to the center
+        x1 = center_x + arrow_length * math.cos(angle)
+        y1 = center_y + arrow_length * math.sin(angle)
+        x2 = center_x - arrow_width * math.cos(angle + math.pi / 2)
+        y2 = center_y - arrow_width * math.sin(angle + math.pi / 2)
+        x3 = center_x - arrow_width * math.cos(angle - math.pi / 2)
+        y3 = center_y - arrow_width * math.sin(angle - math.pi / 2)
 
-    draw.polygon([(x1_abs, y1_abs), (x2_abs, y2_abs), (x3_abs, y3_abs)], fill=(255, 255, 255))
+        # Translate the coordinates to the absolute positions
+        x1_abs = x1
+        y1_abs = y1 - arrow_length
+        x2_abs = x2
+        y2_abs = y2 - arrow_length
+        x3_abs = x3
+        y3_abs = y3 - arrow_length
+
+        draw.polygon([(x1_abs, y1_abs), (x2_abs, y2_abs), (x3_abs, y3_abs)], fill=(255, 255, 255))
 
     # Save the new image
     new_img.save(image_path)
@@ -118,6 +124,8 @@ def add_overlay(config, image_path):
     shutil.copy2(image_path, status_file)
 
 if __name__ == "__main__":
-    import sys
     config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
-    add_overlay(config, sys.argv[1])
+    image_path = sys.argv[1]
+    weather_data = get_weather_data()
+
+    add_overlay(config, image_path, weather_data)
