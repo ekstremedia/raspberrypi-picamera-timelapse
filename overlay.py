@@ -76,7 +76,7 @@ def add_overlay(config, image_path, weather_data):
     if weather_data:
         temperature = f"{weather_data['02:00:00:5f:3f:f8']['Temperature']}°C"
         wind_speed = f"{weather_data['06:00:00:05:7b:ca']['WindStrength']} m/s"
-        wind_direction = weather_data['06:00:00:05:7b:ca']['WindAngle']
+        wind_direction = int(weather_data['06:00:00:05:7b:ca']['WindAngle'])
         rain = f"{weather_data['05:00:00:06:5f:30']['Rain']} mm"
 
         data_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 14)  # Decrease the font size to 14
