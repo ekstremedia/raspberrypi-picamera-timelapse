@@ -88,7 +88,7 @@ def log_message(*messages):
     os.makedirs(log_dir, exist_ok=True)
 
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    log_line = f"[{timestamp}] {' '.join(map(str, messages))}\n"
+    log_line = f"[{timestamp}] {attr('reset')}{' '.join(map(str, messages))}\n"
 
     print(*messages)  # Print the messages with colors
 

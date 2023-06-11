@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kringelen Cam</title>
+    <!-- Import Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function reloadImage() {
+            const imageUrl = "status.jpg";
+            const imageElement = document.getElementById('statusImage');
+            imageElement.src = imageUrl + "?t=" + new Date().getTime();
+        }
+
+        function startCountdown() {
+            var countdownTimer;
+            var countdownElement = document.getElementById('countdown');
+            var timeLeft = 60;
+
+            countdownTimer = setInterval(function () {
+                countdownElement.innerText = 'Next image reload in ' + timeLeft + ' seconds';
+                timeLeft -= 1;
+
+                if (timeLeft < 0) {
+                    clearInterval(countdownTimer);
+                    countdownElement.innerText = 'Reloading image...';
+                    reloadImage();
+                    startCountdown();
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            startCountdown();
+        }
+    </script>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-blue-700">
+    <div class="text-center">
+        <!-- Image center and scale using Tailwind CSS -->
+        <img id="statusImage" src="status.jpg" alt="Status" class="mx-auto w-full md:w-1/2 h-auto object-cover rounded-lg shadow-md">
+        <div id="countdown" class="mt-5 text-blue-100"></div>
+        <div class="mt-2">
+            <!-- Link to videos -->
+            <a href="videos/" class="text-blue-100 hover:underline">Videos</a>
+        </div>
+        <div class="mt-2">
+            <!-- Link to images -->
+            <a href="images/" class="text-blue-100 hover:underline">Images</a>
+        </div>
+    </div>
+</body>
+</html>
+
