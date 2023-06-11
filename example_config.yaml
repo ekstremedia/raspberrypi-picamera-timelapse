@@ -6,7 +6,7 @@ display: 'main'
 awb_enable: False
 awb_mode: 'Daylight'
 colour_gains: [2.1, 1.5]
-filename_prefix: 'timelapse_'
+filename_prefix: 'kringelen_timelapse_'
 interval: 60
 status_file: '/var/www/html/status.jpg'
 
@@ -14,7 +14,6 @@ status_file: '/var/www/html/status.jpg'
 framerate: 25
 bitrate: 44000
 video_format: mp4
-video_filename_prefix: 'timelapse_'
 
 
 # Image output
@@ -31,7 +30,7 @@ video_output:
   video_width: 1920
   video_height: 1080
   video_quality: 23
-  
+
 debug_mode:
   video_width: 640
   video_height: 480
