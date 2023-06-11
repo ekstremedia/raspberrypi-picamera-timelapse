@@ -3,3 +3,4 @@ timelapse.log
 config.yaml
 __pycache__/
 config.yaml
+.idea/
