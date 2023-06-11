@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import yaml
+import os
 import time
 import math
 import shutil
@@ -45,31 +46,32 @@ def add_overlay(config, image_path, weather_data):
     draw.text((date_x, date_y), date_text, font=date_font, fill=(255, 255, 255))  # Center the date vertically
 
     # Load the weather icon image and convert it to RGBA mode
-    weather_icon_path = '/home/pi/raspberrypi-picamera-timelapse/yrimg/01d.png'  # Replace with the path to the weather icon image
-    weather_icon = Image.open(weather_icon_path).convert('RGBA')
+    symbol = weather_data.get('symbol')
+    weather_icon_path = f"/home/pi/raspberrypi-picamera-timelapse/yrimg/{symbol}.png"
 
-    # Create a blank image with a transparent background
-    transparent_icon = Image.new('RGBA', weather_icon.size, (255, 255, 255, 0))
+    if os.path.isfile(weather_icon_path):
+        weather_icon = Image.open(weather_icon_path).convert('RGBA')
 
-    # Composite the weather icon on the transparent background
-    transparent_icon.paste(weather_icon, (0, 0), weather_icon)
+        # Create a blank image with a transparent background
+        transparent_icon = Image.new('RGBA', weather_icon.size, (255, 255, 255, 0))
 
-    # Resize the transparent weather icon
-    transparent_icon = transparent_icon.resize((60, 60))
+        # Composite the weather icon on the transparent background
+        transparent_icon.paste(weather_icon, (0, 0), weather_icon)
 
-    # Calculate the position for the weather icon
-    icon_x = 10
-    icon_y = (80 - transparent_icon.height) // 2  # Center the icon vertically
+        # Resize the transparent weather icon
+        transparent_icon = transparent_icon.resize((60, 60))
 
-    # Overlay the transparent weather icon
-    new_img.paste(transparent_icon, (icon_x, icon_y), transparent_icon)
+        # Calculate the position for the weather icon
+        icon_x = 10
+        icon_y = (70 - transparent_icon.height) // 2  # Center the icon vertically
+
+        # Overlay the transparent weather icon
+        new_img.paste(transparent_icon, (icon_x, icon_y), transparent_icon)
 
     # Draw the weather data
     data_x = 80  # X coordinate for the weather data
     data_y = 11  # Y coordinate for the first line of weather data
     data_spacing = 22  # Spacing between each line of weather data
-
-    weather_data = json.loads(weather_data)
 
     if weather_data:
         temperature = f"{weather_data['02:00:00:5f:3f:f8']['Temperature']}°C"

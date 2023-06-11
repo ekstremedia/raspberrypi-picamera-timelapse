@@ -37,9 +37,11 @@
     </script>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-purple-800">
-    <div class="text-center">
+    <div class="text-center flex-grow">
         <!-- Image center and scale using Tailwind CSS -->
-        <img id="statusImage" src="status.jpg" alt="Status" class="mx-auto w-full md:w-1/2 h-auto object-cover rounded-lg shadow-md">
+        <div class="flex items-center justify-center h-4/5 mt-5">
+            <img id="statusImage" src="status.jpg" alt="Status" class="max-w-full max-h-full object-cover rounded-lg shadow-md">
+        </div>
         <div id="countdown" class="mt-5 text-blue-100"></div>
         <div class="mt-2">
             <!-- Link to videos -->
@@ -51,5 +53,6 @@
         </div>
     </div>
 </body>
+
 </html>
 
