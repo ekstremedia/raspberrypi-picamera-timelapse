@@ -63,6 +63,7 @@ def create_timelapse(config, date=None, debug_mode=False):
         '-framerate', str(config['framerate']),
         '-pattern_type', 'glob',
         '-i', f"{os.path.join(image_folder, '*.jpg')}",
+        '-vf', f"minterpolate='mi_mode=mci:mc_mode=aobmc:me_mode=bidir:me=hex:me_range=16',deflicker",
         '-c:v', 'libx264',
         '-crf', str(video_quality),
         '-pix_fmt', 'yuv420p',
@@ -70,7 +71,6 @@ def create_timelapse(config, date=None, debug_mode=False):
         '-b:v', str(config['bitrate']),
         video_path
     ]
-
     # Run the ffmpeg command
     subprocess.run(ffmpeg_command, capture_output=True, text=True, check=True)
 
