@@ -1,4 +1,4 @@
-
+# Main settings
 camera_name: 'Kringelen'
 main_size: [1920, 1080]
 lores_size: [640, 480]
@@ -14,7 +14,6 @@ status_file: '/var/www/html/status.jpg'
 framerate: 25
 bitrate: 44000
 video_format: mp4
-
 
 # Image output
 image_output:
