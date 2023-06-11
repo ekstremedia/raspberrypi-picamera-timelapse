@@ -29,9 +29,9 @@ def capture_image(config):
         time.sleep(2)  # Allow the white balance to adjust
 
         now = datetime.now()
-        dir_name = os.path.join(config['image_output'], now.strftime('%Y/%m/%d'))
+        dir_name = os.path.join(config['image_output']['root_folder'], now.strftime(config['image_output']['folder_structure']))
         os.makedirs(dir_name, exist_ok=True)
-        file_name = os.path.join(dir_name, f"{config['filename_prefix']}{now.strftime('%Y_%m_%d_%H_%M_%S')}.jpg")
+        file_name = os.path.join(dir_name, f"{config['image_output']['filename_prefix']}{now.strftime('%Y_%m_%d_%H_%M_%S')}.jpg")
 
         camera.capture_file(file_name)
         subprocess.run(['python', '/home/pi/raspberrypi-picamera-timelapse/overlay.py', file_name])
@@ -40,4 +40,3 @@ def capture_image(config):
 if __name__ == "__main__":
     config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
     capture_image(config)
-
