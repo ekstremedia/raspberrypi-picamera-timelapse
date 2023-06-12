@@ -10,7 +10,7 @@ def load_config(config_path):
 def timelapse(config):
     interval = config['interval']
     while True:
-        subprocess.run(['python', '/home/pi/raspberrypi-picamera-timelapse/pc.py'])
+        subprocess.run(['python', '/home/pi/raspberrypi-picamera-timelapse/capture_image.py'])
         time.sleep(interval)
 
 if __name__ == "__main__":

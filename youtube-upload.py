@@ -6,11 +6,15 @@ import googleapiclient.errors
 
 scopes = ["https://www.googleapis.com/auth/youtube.upload"]
 
+from google.oauth2 import service_account
+
 def upload_video(filename, title, description, category_id, privacy_status):
-    # Get credentials and create an API client
-    flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
-        "oauth2.json", scopes)
-    credentials = flow.run_local_server(port=0)
+    SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
+    SERVICE_ACCOUNT_FILE = 'oauth2.json'
+
+    credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
     youtube = googleapiclient.discovery.build(
         "youtube", "v3", credentials=credentials)
 

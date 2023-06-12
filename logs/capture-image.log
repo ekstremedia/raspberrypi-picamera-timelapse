@@ -1,0 +1,725 @@
+INFO:root:Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_18_41_38.jpg
+INFO:root:Weather data retrieved successfully.
+INFO:root:Overlay added successfully.
+06/12/2023 06:42:38 PM Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_18_42_38.jpg
+06/12/2023 06:42:38 PM Weather data retrieved successfully.
+06/12/2023 06:42:39 PM Overlay added successfully.
+06/12/2023 06:43:55 PM INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_18_43_54.jpg
+06/12/2023 06:43:55 PM INFO:root: Weather data retrieved successfully.
+06/12/2023 06:43:55 PM INFO:root: Overlay added successfully.
+06/12/2023 18:44:56 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_18_44_56.jpg
+06/12/2023 18:44:56 INFO:root: Weather data retrieved successfully.
+06/12/2023 18:44:57 INFO:root: Overlay added successfully.
+06/12/2023 18:51:11 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 18:51:11 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 18:51:11 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 18:51:11 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 18:57:33 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 18:57:33 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 18:57:33 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 18:57:53 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 18:57:53 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 18:57:53 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 18:57:53 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 18:59:53 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 18:59:53 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 18:59:53 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 18:59:53 INFO:picamera2.picamera2: Camera started
+06/12/2023 18:59:55 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7faaafc850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_18_59_55.jpg.
+06/12/2023 18:59:55 INFO:picamera2.request: Time taken for encode: 46.31692499970086 ms.
+06/12/2023 18:59:56 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_18_59_55.jpg
+06/12/2023 18:59:56 INFO:root: Weather data retrieved successfully.
+06/12/2023 18:59:56 INFO:root: Overlay added successfully.
+06/12/2023 18:59:56 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_18_59_55.jpg
+06/12/2023 18:59:56 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 18:59:56 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:00:14 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:00:14 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:00:14 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:00:14 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:00:16 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f966f8850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_16.jpg.
+06/12/2023 19:00:16 INFO:picamera2.request: Time taken for encode: 44.12746999878436 ms.
+06/12/2023 19:00:16 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_16.jpg
+06/12/2023 19:00:16 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:00:16 INFO:root: Overlay added successfully.
+06/12/2023 19:00:17 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_16.jpg
+06/12/2023 19:00:17 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:00:17 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:00:26 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:00:26 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:00:26 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:00:26 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:00:29 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f738ee850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_28.jpg.
+06/12/2023 19:00:29 INFO:picamera2.request: Time taken for encode: 68.64970200695097 ms.
+06/12/2023 19:00:29 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_28.jpg
+06/12/2023 19:00:29 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:00:29 INFO:root: Overlay added successfully.
+06/12/2023 19:00:29 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_28.jpg
+06/12/2023 19:00:29 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:00:30 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:00:38 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:00:38 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:00:38 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:00:39 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:00:41 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa37ce850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_41.jpg.
+06/12/2023 19:00:41 INFO:picamera2.request: Time taken for encode: 68.65773900062777 ms.
+06/12/2023 19:00:41 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_41.jpg
+06/12/2023 19:00:41 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:00:41 INFO:root: Overlay added successfully.
+06/12/2023 19:00:41 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_41.jpg
+06/12/2023 19:00:42 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:00:42 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:00:54 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:00:54 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:00:54 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:00:54 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:00:57 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f79e57820> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_56.jpg.
+06/12/2023 19:00:57 INFO:picamera2.request: Time taken for encode: 45.938410999951884 ms.
+06/12/2023 19:00:57 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_56.jpg
+06/12/2023 19:00:57 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:00:57 INFO:root: Overlay added successfully.
+06/12/2023 19:00:57 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_00_56.jpg
+06/12/2023 19:00:57 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:00:58 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:01:10 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:01:10 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:01:10 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:01:10 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:01:12 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f7c515850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_01_12.jpg.
+06/12/2023 19:01:12 INFO:picamera2.request: Time taken for encode: 51.91742902388796 ms.
+06/12/2023 19:01:12 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_01_12.jpg
+06/12/2023 19:01:12 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:01:12 INFO:root: Overlay added successfully.
+06/12/2023 19:01:13 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_01_12.jpg
+06/12/2023 19:01:13 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:01:13 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:01:41 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:01:41 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:01:41 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:01:41 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:01:43 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa2b0b850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_01_43.jpg.
+06/12/2023 19:01:43 INFO:picamera2.request: Time taken for encode: 46.1877970083151 ms.
+06/12/2023 19:01:43 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_01_43.jpg
+06/12/2023 19:01:43 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:01:44 INFO:root: Overlay added successfully.
+06/12/2023 19:01:44 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_01_43.jpg
+06/12/2023 19:01:44 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:01:44 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:02:01 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:02:01 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:02:01 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:02:01 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:02:03 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f976cf850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_03.jpg.
+06/12/2023 19:02:03 INFO:picamera2.request: Time taken for encode: 47.46750197955407 ms.
+06/12/2023 19:02:04 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_03.jpg
+06/12/2023 19:02:04 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:02:04 INFO:root: Overlay added successfully.
+06/12/2023 19:02:04 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_03.jpg
+06/12/2023 19:02:04 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:02:04 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:02:13 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:02:13 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:02:13 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:02:13 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:02:15 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa36e9850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_15.jpg.
+06/12/2023 19:02:15 INFO:picamera2.request: Time taken for encode: 46.08066802029498 ms.
+06/12/2023 19:02:16 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_15.jpg
+06/12/2023 19:02:16 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:02:16 INFO:root: Overlay added successfully.
+06/12/2023 19:02:16 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_15.jpg
+06/12/2023 19:02:16 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:02:16 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:02:25 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:02:25 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:02:25 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:02:25 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:02:27 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa3cd37f0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_27.jpg.
+06/12/2023 19:02:27 INFO:picamera2.request: Time taken for encode: 48.02890299470164 ms.
+06/12/2023 19:02:27 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_27.jpg
+06/12/2023 19:02:27 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:02:28 INFO:root: Overlay added successfully.
+06/12/2023 19:02:28 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_02_27.jpg
+06/12/2023 19:02:28 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:02:28 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:03:12 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:03:12 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:03:12 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:03:12 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:03:14 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f9b0f8850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_03_14.jpg.
+06/12/2023 19:03:14 INFO:picamera2.request: Time taken for encode: 46.52158898534253 ms.
+06/12/2023 19:03:15 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_03_14.jpg
+06/12/2023 19:03:15 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:03:15 INFO:root: Overlay added successfully.
+06/12/2023 19:03:15 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_03_14.jpg
+06/12/2023 19:03:15 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:03:15 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:06:15 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:06:15 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:06:15 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:06:15 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:06:17 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7faa3dc850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_06_17.jpg.
+06/12/2023 19:06:17 INFO:picamera2.request: Time taken for encode: 47.40663297707215 ms.
+06/12/2023 19:06:18 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_06_17.jpg
+06/12/2023 19:06:18 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:06:18 INFO:root: Overlay added successfully.
+06/12/2023 19:06:18 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_06_17.jpg
+06/12/2023 19:06:18 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:06:19 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:06:25 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:06:25 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:06:25 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:06:26 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:06:28 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f95317850> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_06_28.jpg.
+06/12/2023 19:06:28 INFO:picamera2.request: Time taken for encode: 47.31594899203628 ms.
+06/12/2023 19:06:28 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_06_28.jpg
+06/12/2023 19:06:28 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:06:28 INFO:root: Overlay added successfully.
+06/12/2023 19:06:28 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_06_28.jpg
+06/12/2023 19:06:28 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:06:29 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:12:44 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:12:44 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:12:44 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:12:44 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:12:46 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa28a8d90> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_12_46.jpg.
+06/12/2023 19:12:46 INFO:picamera2.request: Time taken for encode: 46.36610799934715 ms.
+06/12/2023 19:12:48 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_12_46.jpg
+06/12/2023 19:12:48 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:12:48 INFO:root: Overlay added successfully.
+06/12/2023 19:12:48 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_12_46.jpg
+06/12/2023 19:12:48 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:12:49 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:14:45 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:14:45 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:14:45 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:14:46 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:15:43 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:15:43 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:15:43 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:15:43 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:15:55 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:15:55 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:15:55 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:15:56 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:16:28 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:16:28 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:16:28 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:16:28 INFO:root: Active controls before capturing the image: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.5}, 'display': 'main', 'encode': None}
+06/12/2023 19:16:29 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:16:31 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f89906e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_16_31.jpg.
+06/12/2023 19:16:31 INFO:picamera2.request: Time taken for encode: 46.454496012302116 ms.
+06/12/2023 19:16:31 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_16_31.jpg
+06/12/2023 19:16:31 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:16:31 INFO:root: Overlay added successfully.
+06/12/2023 19:16:31 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_16_31.jpg
+06/12/2023 19:16:31 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:16:32 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:17:38 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:17:38 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:17:38 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:17:38 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.5}, 'display': 'main', 'encode': None}
+06/12/2023 19:17:38 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:17:40 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fb22d0e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_17_40.jpg.
+06/12/2023 19:17:40 INFO:picamera2.request: Time taken for encode: 46.25465199933387 ms.
+06/12/2023 19:17:41 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_17_40.jpg
+06/12/2023 19:17:41 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:17:41 INFO:root: Overlay added successfully.
+06/12/2023 19:17:41 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_17_40.jpg
+06/12/2023 19:17:41 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:17:41 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:18:20 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:18:20 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:18:20 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:18:20 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.5}, 'display': 'main', 'encode': None}
+06/12/2023 19:18:20 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:18:22 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7faa57cee0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_18_22.jpg.
+06/12/2023 19:18:22 INFO:picamera2.request: Time taken for encode: 46.91495900624432 ms.
+06/12/2023 19:18:23 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_18_22.jpg
+06/12/2023 19:18:23 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:18:23 INFO:root: Overlay added successfully.
+06/12/2023 19:18:23 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_18_22.jpg
+06/12/2023 19:18:23 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:18:24 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:18:46 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:18:46 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:18:46 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:18:46 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.0}, 'display': 'main', 'encode': None}
+06/12/2023 19:18:46 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:18:48 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7faaf66ee0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_18_48.jpg.
+06/12/2023 19:18:48 INFO:picamera2.request: Time taken for encode: 46.77936699590646 ms.
+06/12/2023 19:18:49 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_18_48.jpg
+06/12/2023 19:18:49 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:18:49 INFO:root: Overlay added successfully.
+06/12/2023 19:18:49 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_18_48.jpg
+06/12/2023 19:18:49 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:18:49 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:19:03 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:19:03 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:19:03 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:19:03 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.5}, 'display': 'main', 'encode': None}
+06/12/2023 19:19:03 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:19:05 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f898ceee0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_05.jpg.
+06/12/2023 19:19:05 INFO:picamera2.request: Time taken for encode: 46.88379299477674 ms.
+06/12/2023 19:19:06 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_05.jpg
+06/12/2023 19:19:06 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:19:06 INFO:root: Overlay added successfully.
+06/12/2023 19:19:06 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_05.jpg
+06/12/2023 19:19:06 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:19:06 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:19:29 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:19:29 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:19:29 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:19:29 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1}, 'display': 'main', 'encode': None}
+06/12/2023 19:19:29 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:19:31 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f76e5fee0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_31.jpg.
+06/12/2023 19:19:31 INFO:picamera2.request: Time taken for encode: 56.40344900893979 ms.
+06/12/2023 19:19:32 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_31.jpg
+06/12/2023 19:19:32 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:19:32 INFO:root: Overlay added successfully.
+06/12/2023 19:19:32 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_31.jpg
+06/12/2023 19:19:32 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:19:32 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:19:43 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:19:43 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:19:43 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:19:43 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.0}, 'display': 'main', 'encode': None}
+06/12/2023 19:19:43 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:19:45 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f8481aee0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_45.jpg.
+06/12/2023 19:19:45 INFO:picamera2.request: Time taken for encode: 72.07439799094573 ms.
+06/12/2023 19:19:45 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_45.jpg
+06/12/2023 19:19:45 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:19:46 INFO:root: Overlay added successfully.
+06/12/2023 19:19:46 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_19_45.jpg
+06/12/2023 19:19:46 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:19:46 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:20:11 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:20:11 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:20:11 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:20:11 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.0}, 'display': 'main', 'encode': None}
+06/12/2023 19:20:11 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:20:16 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa1102eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_20_16.jpg.
+06/12/2023 19:20:16 INFO:picamera2.request: Time taken for encode: 46.01854499196634 ms.
+06/12/2023 19:20:16 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_20_16.jpg
+06/12/2023 19:20:16 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:20:16 INFO:root: Overlay added successfully.
+06/12/2023 19:20:17 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_20_16.jpg
+06/12/2023 19:20:17 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:20:17 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:20:41 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:20:41 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:20:41 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:20:41 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1}, 'display': 'main', 'encode': None}
+06/12/2023 19:20:41 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:20:46 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fb284beb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_20_46.jpg.
+06/12/2023 19:20:46 INFO:picamera2.request: Time taken for encode: 45.89680500794202 ms.
+06/12/2023 19:20:47 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_20_46.jpg
+06/12/2023 19:20:47 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:20:47 INFO:root: Overlay added successfully.
+06/12/2023 19:20:47 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_20_46.jpg
+06/12/2023 19:20:47 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:20:47 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:20:57 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:20:57 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:20:57 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:20:57 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 10}, 'display': 'main', 'encode': None}
+06/12/2023 19:20:57 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:21:02 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa26d9eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_02.jpg.
+06/12/2023 19:21:02 INFO:picamera2.request: Time taken for encode: 44.290269986959174 ms.
+06/12/2023 19:21:03 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_02.jpg
+06/12/2023 19:21:03 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:21:03 INFO:root: Overlay added successfully.
+06/12/2023 19:21:03 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_02.jpg
+06/12/2023 19:21:03 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:21:03 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:21:10 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:21:10 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:21:10 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:21:10 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 7}, 'display': 'main', 'encode': None}
+06/12/2023 19:21:10 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:21:16 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f876fdeb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_15.jpg.
+06/12/2023 19:21:16 INFO:picamera2.request: Time taken for encode: 70.0029059953522 ms.
+06/12/2023 19:21:16 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_15.jpg
+06/12/2023 19:21:16 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:21:16 INFO:root: Overlay added successfully.
+06/12/2023 19:21:16 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_15.jpg
+06/12/2023 19:21:16 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:21:16 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:21:29 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:21:29 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:21:29 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:21:29 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0}, 'display': 'main', 'encode': None}
+06/12/2023 19:21:29 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:21:35 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f73246eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_34.jpg.
+06/12/2023 19:21:35 INFO:picamera2.request: Time taken for encode: 45.78773301909678 ms.
+06/12/2023 19:21:35 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_34.jpg
+06/12/2023 19:21:35 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:21:35 INFO:root: Overlay added successfully.
+06/12/2023 19:21:35 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_34.jpg
+06/12/2023 19:21:35 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:21:36 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:21:41 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:21:41 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:21:41 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:21:41 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0}, 'display': 'main', 'encode': None}
+06/12/2023 19:21:41 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:21:47 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f78c1deb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_46.jpg.
+06/12/2023 19:21:47 INFO:picamera2.request: Time taken for encode: 45.94037900096737 ms.
+06/12/2023 19:21:47 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_46.jpg
+06/12/2023 19:21:47 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:21:47 INFO:root: Overlay added successfully.
+06/12/2023 19:21:47 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_21_46.jpg
+06/12/2023 19:21:47 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:21:48 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:22:04 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:22:04 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:22:04 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:22:04 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.0}, 'display': 'main', 'encode': None}
+06/12/2023 19:22:04 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:22:09 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f7f5f4eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_09.jpg.
+06/12/2023 19:22:09 INFO:picamera2.request: Time taken for encode: 45.43571898830123 ms.
+06/12/2023 19:22:10 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_09.jpg
+06/12/2023 19:22:10 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:22:10 INFO:root: Overlay added successfully.
+06/12/2023 19:22:10 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_09.jpg
+06/12/2023 19:22:10 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:22:10 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:22:25 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:22:25 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:22:25 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:22:25 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.5}, 'display': 'main', 'encode': None}
+06/12/2023 19:22:26 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:22:31 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f79fb8eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_31.jpg.
+06/12/2023 19:22:31 INFO:picamera2.request: Time taken for encode: 47.8676880011335 ms.
+06/12/2023 19:22:31 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_31.jpg
+06/12/2023 19:22:31 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:22:31 INFO:root: Overlay added successfully.
+06/12/2023 19:22:31 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_31.jpg
+06/12/2023 19:22:31 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:22:32 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:22:49 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:22:49 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:22:49 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:22:49 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.9}, 'display': 'main', 'encode': None}
+06/12/2023 19:22:49 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:22:54 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f9b2dbeb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_54.jpg.
+06/12/2023 19:22:54 INFO:picamera2.request: Time taken for encode: 46.79566400591284 ms.
+06/12/2023 19:22:55 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_54.jpg
+06/12/2023 19:22:55 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:22:55 INFO:root: Overlay added successfully.
+06/12/2023 19:22:55 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_22_54.jpg
+06/12/2023 19:22:55 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:22:55 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:23:17 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:23:17 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:23:17 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:23:17 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1}, 'display': 'main', 'encode': None}
+06/12/2023 19:23:17 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:23:22 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f7ee8aeb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_23_22.jpg.
+06/12/2023 19:23:22 INFO:picamera2.request: Time taken for encode: 46.5321310039144 ms.
+06/12/2023 19:23:22 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_23_22.jpg
+06/12/2023 19:23:22 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:23:23 INFO:root: Overlay added successfully.
+06/12/2023 19:23:23 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_23_22.jpg
+06/12/2023 19:23:23 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:23:23 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:23:41 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:23:41 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:23:41 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:23:41 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 2}, 'display': 'main', 'encode': None}
+06/12/2023 19:23:41 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:23:46 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa8251eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_23_46.jpg.
+06/12/2023 19:23:46 INFO:picamera2.request: Time taken for encode: 45.459293003659695 ms.
+06/12/2023 19:23:48 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_23_46.jpg
+06/12/2023 19:23:48 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:23:48 INFO:root: Overlay added successfully.
+06/12/2023 19:23:48 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_23_46.jpg
+06/12/2023 19:23:49 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:23:49 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:23:56 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:23:56 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:23:56 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:23:56 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1}, 'display': 'main', 'encode': None}
+06/12/2023 19:23:56 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:24:02 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fb1f6ceb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_24_01.jpg.
+06/12/2023 19:24:02 INFO:picamera2.request: Time taken for encode: 46.617482003057376 ms.
+06/12/2023 19:24:02 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_24_01.jpg
+06/12/2023 19:24:02 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:24:02 INFO:root: Overlay added successfully.
+06/12/2023 19:24:02 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_24_01.jpg
+06/12/2023 19:24:02 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:24:03 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:24:31 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:24:31 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:24:31 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:24:31 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1}, 'display': 'main', 'encode': None}
+06/12/2023 19:24:31 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:24:36 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f8a9a8eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_24_36.jpg.
+06/12/2023 19:24:36 INFO:picamera2.request: Time taken for encode: 46.361780987353995 ms.
+06/12/2023 19:24:36 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_24_36.jpg
+06/12/2023 19:24:36 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:24:37 INFO:root: Overlay added successfully.
+06/12/2023 19:24:37 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_24_36.jpg
+06/12/2023 19:24:37 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:24:37 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:27:00 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:27:00 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:27:00 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:27:00 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1}, 'display': 'main', 'encode': None}
+06/12/2023 19:27:00 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:27:05 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa2c55e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_27_05.jpg.
+06/12/2023 19:27:05 INFO:picamera2.request: Time taken for encode: 47.45362000539899 ms.
+06/12/2023 19:27:05 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_27_05.jpg
+06/12/2023 19:27:05 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:27:06 INFO:root: Overlay added successfully.
+06/12/2023 19:27:06 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_27_05.jpg
+06/12/2023 19:27:06 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:27:06 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:28:01 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:28:01 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:28:01 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:28:01 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:28:01 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:28:06 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa7b02e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_28_06.jpg.
+06/12/2023 19:28:06 INFO:picamera2.request: Time taken for encode: 46.48513300344348 ms.
+06/12/2023 19:28:07 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_28_06.jpg
+06/12/2023 19:28:07 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:28:07 INFO:root: Overlay added successfully.
+06/12/2023 19:28:07 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_28_06.jpg
+06/12/2023 19:28:07 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:28:07 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:31:51 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:31:51 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:31:51 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:31:51 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:31:51 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:31:56 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f98c1ae80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_31_56.jpg.
+06/12/2023 19:31:56 INFO:picamera2.request: Time taken for encode: 41.74635899835266 ms.
+06/12/2023 19:31:57 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_31_56.jpg
+06/12/2023 19:31:57 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:31:57 INFO:root: Overlay added successfully.
+06/12/2023 19:31:57 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_31_56.jpg
+06/12/2023 19:31:57 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:31:58 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:32:17 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:32:17 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:32:17 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:32:17 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:32:17 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:32:23 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f906f2e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_32_23.jpg.
+06/12/2023 19:32:23 INFO:picamera2.request: Time taken for encode: 48.407107999082655 ms.
+06/12/2023 19:32:23 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_32_23.jpg
+06/12/2023 19:32:23 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:32:23 INFO:root: Overlay added successfully.
+06/12/2023 19:32:23 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_32_23.jpg
+06/12/2023 19:32:23 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:32:24 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:32:38 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:32:38 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:32:38 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:32:38 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:32:38 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:32:43 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f92720e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_32_43.jpg.
+06/12/2023 19:32:43 INFO:picamera2.request: Time taken for encode: 58.834069001022726 ms.
+06/12/2023 19:32:44 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_32_43.jpg
+06/12/2023 19:32:44 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:32:44 INFO:root: Overlay added successfully.
+06/12/2023 19:32:44 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_32_43.jpg
+06/12/2023 19:32:44 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:32:44 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:37:07 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:37:07 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:37:07 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:37:07 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:37:07 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:37:12 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa6d5be80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_12.jpg.
+06/12/2023 19:37:12 INFO:picamera2.request: Time taken for encode: 58.31205801223405 ms.
+06/12/2023 19:37:14 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_12.jpg
+06/12/2023 19:37:14 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:37:14 INFO:root: Overlay added successfully.
+06/12/2023 19:37:14 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_12.jpg
+06/12/2023 19:37:14 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:37:14 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:37:16 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:37:16 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:37:16 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:37:16 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:37:16 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:37:21 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f9bd99e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_21.jpg.
+06/12/2023 19:37:21 INFO:picamera2.request: Time taken for encode: 59.35902599594556 ms.
+06/12/2023 19:37:22 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_21.jpg
+06/12/2023 19:37:22 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:37:22 INFO:root: Overlay added successfully.
+06/12/2023 19:37:22 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_21.jpg
+06/12/2023 19:37:22 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:37:22 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:37:33 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:37:33 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:37:33 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:37:33 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:37:33 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:37:38 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f7b849e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_38.jpg.
+06/12/2023 19:37:38 INFO:picamera2.request: Time taken for encode: 72.07251398358494 ms.
+06/12/2023 19:37:39 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_38.jpg
+06/12/2023 19:37:39 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:37:39 INFO:root: Overlay added successfully.
+06/12/2023 19:37:39 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_37_38.jpg
+06/12/2023 19:37:39 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:37:39 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:38:40 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:38:40 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:38:40 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:38:40 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:38:40 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:38:45 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f97b66e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_38_45.jpg.
+06/12/2023 19:38:45 INFO:picamera2.request: Time taken for encode: 71.6383529943414 ms.
+06/12/2023 19:38:46 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_38_45.jpg
+06/12/2023 19:38:46 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:38:46 INFO:root: Overlay added successfully.
+06/12/2023 19:38:46 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_38_45.jpg
+06/12/2023 19:38:46 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:38:46 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:39:07 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:39:07 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:39:07 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:39:07 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:39:08 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:39:13 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f8c6d4e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_39_13.jpg.
+06/12/2023 19:39:13 INFO:picamera2.request: Time taken for encode: 58.56996600050479 ms.
+06/12/2023 19:39:13 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_39_13.jpg
+06/12/2023 19:39:13 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:39:13 INFO:root: Overlay added successfully.
+06/12/2023 19:39:13 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_39_13.jpg
+06/12/2023 19:39:13 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:39:14 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:39:47 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:39:47 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:39:47 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:39:47 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:39:47 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:39:53 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f8a67fe80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_39_52.jpg.
+06/12/2023 19:39:53 INFO:picamera2.request: Time taken for encode: 59.11921901861206 ms.
+06/12/2023 19:39:53 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_39_52.jpg
+06/12/2023 19:39:53 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:39:53 INFO:root: Overlay added successfully.
+06/12/2023 19:39:53 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_39_52.jpg
+06/12/2023 19:39:53 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:39:54 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:40:55 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:40:55 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:40:55 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:40:55 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (1920, 1080), 'stride': 5760, 'framesize': 6220800}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:40:55 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:40:59 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:40:59 ERROR:picamera2.picamera2: Camera __init__ sequence did not complete.
+06/12/2023 19:41:00 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7fa5329e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_41_00.jpg.
+06/12/2023 19:41:00 INFO:picamera2.request: Time taken for encode: 58.8513340044301 ms.
+06/12/2023 19:41:00 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_41_00.jpg
+06/12/2023 19:41:00 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:41:01 INFO:root: Overlay added successfully.
+06/12/2023 19:41:01 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_41_00.jpg
+06/12/2023 19:41:01 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:41:01 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:41:08 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:41:08 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:41:08 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:41:08 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:41:08 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:41:14 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f9229ae80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_41_13.jpg.
+06/12/2023 19:41:14 INFO:picamera2.request: Time taken for encode: 172.09639001521282 ms.
+06/12/2023 19:41:14 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_41_13.jpg
+06/12/2023 19:41:14 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:41:15 INFO:root: Overlay added successfully.
+06/12/2023 19:41:15 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_41_13.jpg
+06/12/2023 19:41:15 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:41:15 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:42:02 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:42:02 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:42:02 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:42:02 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:42:02 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:42:07 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f8e383e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_42_07.jpg.
+06/12/2023 19:42:07 INFO:picamera2.request: Time taken for encode: 173.53387200273573 ms.
+06/12/2023 19:42:08 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_42_07.jpg
+06/12/2023 19:42:08 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:42:08 INFO:root: Overlay added successfully.
+06/12/2023 19:42:09 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_42_07.jpg
+06/12/2023 19:42:09 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:42:09 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:43:03 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:43:03 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:43:03 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:43:03 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.0, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:43:03 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:43:09 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f85ba5e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_08.jpg.
+06/12/2023 19:43:09 INFO:picamera2.request: Time taken for encode: 169.37083200900815 ms.
+06/12/2023 19:43:10 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_08.jpg
+06/12/2023 19:43:10 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:43:10 INFO:root: Overlay added successfully.
+06/12/2023 19:43:10 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_08.jpg
+06/12/2023 19:43:10 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:43:10 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:43:20 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:43:20 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:43:20 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:43:20 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:43:21 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:43:26 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f77b8de80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_26.jpg.
+06/12/2023 19:43:26 INFO:picamera2.request: Time taken for encode: 169.0908359887544 ms.
+06/12/2023 19:43:26 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_26.jpg
+06/12/2023 19:43:26 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:43:27 INFO:root: Overlay added successfully.
+06/12/2023 19:43:27 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_26.jpg
+06/12/2023 19:43:27 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:43:27 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:43:35 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:43:35 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:43:35 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:43:35 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 0.5, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:43:35 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:43:41 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f8f4f4e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_40.jpg.
+06/12/2023 19:43:41 INFO:picamera2.request: Time taken for encode: 171.379713981878 ms.
+06/12/2023 19:43:41 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_40.jpg
+06/12/2023 19:43:41 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:43:42 INFO:root: Overlay added successfully.
+06/12/2023 19:43:42 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_43_40.jpg
+06/12/2023 19:43:42 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:43:42 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:43:58 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:43:58 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:43:58 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:43:58 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:43:58 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:44:04 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f9f1d0e80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_44_03.jpg.
+06/12/2023 19:44:04 INFO:picamera2.request: Time taken for encode: 171.24966098344885 ms.
+06/12/2023 19:44:04 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_44_03.jpg
+06/12/2023 19:44:04 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:44:05 INFO:root: Overlay added successfully.
+06/12/2023 19:44:05 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_44_03.jpg
+06/12/2023 19:44:05 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:44:05 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:44:33 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:44:33 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:44:33 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:44:33 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:44:33 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:44:39 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7f748cde80> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_44_38.jpg.
+06/12/2023 19:44:39 INFO:picamera2.request: Time taken for encode: 173.91909001162276 ms.
+06/12/2023 19:44:39 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_44_38.jpg
+06/12/2023 19:44:39 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:44:40 INFO:root: Overlay added successfully.
+06/12/2023 19:44:40 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_44_38.jpg
+06/12/2023 19:44:40 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:44:40 INFO:picamera2.picamera2: Camera closed successfully.
+06/12/2023 19:45:41 INFO:picamera2.picamera2: Initialization successful.
+06/12/2023 19:45:41 INFO:picamera2.picamera2: Camera now open.
+06/12/2023 19:45:41 INFO:picamera2.picamera2: Configuration successful!
+06/12/2023 19:45:41 INFO:root: Camera config: {'use_case': 'still', 'transform': <libcamera.Transform 'identity'>, 'colour_space': <libcamera.ColorSpace 'sYCC'>, 'buffer_count': 1, 'queue': True, 'main': {'format': 'BGR888', 'size': (3840, 2160), 'stride': 11520, 'framesize': 24883200}, 'lores': {'format': 'YUV420', 'size': (640, 480), 'stride': 640, 'framesize': 460800}, 'raw': None, 'controls': {'NoiseReductionMode': <NoiseReductionModeEnum.HighQuality: 2>, 'FrameDurationLimits': (100, 1000000000), 'AwbEnable': False, 'AwbMode': <AwbModeEnum.Daylight: 5>, 'AfMode': <AfModeEnum.Manual: 0>, 'LensPosition': 1, 'ColourGains': (2.1, 1.5)}, 'display': 'main', 'encode': None}
+06/12/2023 19:45:41 INFO:picamera2.picamera2: Camera started
+06/12/2023 19:45:46 INFO:picamera2.request: Saved <picamera2.request.Helpers object at 0x7faa4d5eb0> to file /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_45_46.jpg.
+06/12/2023 19:45:46 INFO:picamera2.request: Time taken for encode: 132.04774699988775 ms.
+06/12/2023 19:45:47 INFO:root: Image path: /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_45_46.jpg
+06/12/2023 19:45:47 INFO:root: Weather data retrieved successfully.
+06/12/2023 19:45:47 INFO:root: Overlay added successfully.
+06/12/2023 19:45:47 INFO:root: Image captured and saved to /var/www/html/images/2023/06/12/kringelen_2023_06_12_19_45_46.jpg
+06/12/2023 19:45:48 INFO:picamera2.picamera2: Camera stopped
+06/12/2023 19:45:48 INFO:picamera2.picamera2: Camera closed successfully.

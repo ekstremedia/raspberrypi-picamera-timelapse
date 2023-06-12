@@ -1,6 +1,6 @@
 ## Raspberry Pi Timelapse
 
-`pc.py` takes the photos and put on the overlay made in `overlay.py`
+`capture_image.py` takes the photos and put on the overlay made in `overlay.py`
 
 run `create-timelapse.py` to create a timelapse of yesterday's video.
 
