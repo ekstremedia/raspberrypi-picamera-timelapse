@@ -19,12 +19,12 @@
             var timeLeft = 60;
 
             countdownTimer = setInterval(function () {
-                countdownElement.innerText = 'Next image reload in ' + timeLeft + ' seconds';
+                countdownElement.innerText = 'Laster nytt bilde om ' + timeLeft + ' sekunder';
                 timeLeft -= 1;
 
                 if (timeLeft < 0) {
                     clearInterval(countdownTimer);
-                    countdownElement.innerText = 'Reloading image...';
+                    countdownElement.innerText = 'Laster nytt bilde...';
                     reloadImage();
                     startCountdown();
                 }
@@ -42,14 +42,6 @@
             <img id="statusImage" src="status.jpg" alt="Status" class="max-w-full max-h-full object-cover rounded-lg shadow-md">
         </div>
         <div id="countdown" class="mt-5 text-blue-100"></div>
-        <div class="mt-2">
-            <!-- Link to videos -->
-            <a href="videos/" class="text-blue-100 hover:underline">Videos</a>
-        </div>
-        <div class="mt-2">
-            <!-- Link to images -->
-            <a href="images/" class="text-blue-100 hover:underline">Images</a>
-        </div>
     </div>
 </body>
 </html>

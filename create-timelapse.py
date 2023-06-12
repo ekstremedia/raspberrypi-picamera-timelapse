@@ -82,11 +82,12 @@ def create_timelapse(config, date=None, debug_mode=False):
     log_message(f"{fg('green')}Timelapse video created{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{video_path}{attr('reset')}")
     log_message(f"{fg('green')}Duration{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{end_time - start_time:.2f} seconds")
 
-    # video_title = f"Timelapse video for {specified_date_str}"
-    # video_description = f"This is a timelapse video for {specified_date_str} created by my Raspberry Pi camera."
+    video_title = f"Kringelen Timelapse {specified_date_str}"
+    video_description = f"This is a timelapse video for {specified_date_str} created by my Raspberry Pi camera."
 
-    # upload_command = ['python', 'upload_to_youtube.py', video_path, video_title, video_description]
-    # subprocess.run(upload_command, check=True)
+    upload_command = ['python', 'youtube-upload.py', video_path, video_title, video_description]
+    subprocess.run(upload_command, check=True)
+    print(upload_command)
 
 def log_message(*messages):
     log_path = os.path.join('logs', 'timelapse.log')
