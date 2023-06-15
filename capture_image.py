@@ -69,7 +69,19 @@ def capture_image(config, logging_enabled):
         file_name = os.path.join(dir_name, f"{config['image_output']['filename_prefix']}{now.strftime('%Y_%m_%d_%H_%M_%S')}.jpg")
 
         camera.capture_file(file_name)
-        subprocess.run(['python', '/home/pi/raspberrypi-picamera-timelapse/overlay.py', file_name])
+        # subprocess.run(['python', '/home/pi/raspberrypi-picamera-timelapse/new_overlay.py', file_name])
+        
+        # Set the command as a list of strings
+        command = [
+            'python', 
+            'new_overlay.py', 
+            '--file', 
+            file_name
+        ]
+
+        # Use subprocess to run the command
+        subprocess.run(command)        
+        
         if logging_enabled:
             logging.info(f"Image captured and saved to {file_name}")
         print("Finished")

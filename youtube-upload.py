@@ -5,6 +5,8 @@ import googleapiclient.discovery
 import yaml
 import googleapiclient.errors
 import logging
+import socket
+from google.auth import exceptions
 from google.oauth2 import service_account
 
 # Set up logging
@@ -24,62 +26,76 @@ def load_config():
     with open(config_path, 'r') as config_file:
         return yaml.safe_load(config_file)
 
-
 def upload_video(filename, title, description, category_id, privacy_status, playlist_id, logging_enabled):
-    SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
+    try:
+        SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
 
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    SERVICE_ACCOUNT_FILE = os.path.join(script_dir, 'oauth2.json')
+        script_dir = os.path.dirname(os.path.realpath(__file__))
+        SERVICE_ACCOUNT_FILE = os.path.join(script_dir, 'oauth2.json')
 
-    credentials = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+        credentials = service_account.Credentials.from_service_account_file(
+            SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-    youtube = googleapiclient.discovery.build(
-        "youtube", "v3", credentials=credentials)
+        youtube = googleapiclient.discovery.build(
+            "youtube", "v3", credentials=credentials)
 
-    request = youtube.videos().insert(
-        part="snippet,status",
-        body={
-            "snippet": {
-                "categoryId": category_id,
-                "description": description,
-                "title": title
+        request = youtube.videos().insert(
+            part="snippet,status",
+            body={
+                "snippet": {
+                    "categoryId": category_id,
+                    "description": description,
+                    "title": title
+                },
+                "status": {
+                    "privacyStatus": privacy_status
+                }
             },
-            "status": {
-                "privacyStatus": privacy_status
-            }
-        },
-        media_body=filename
-    )
+            media_body=filename
+        )
 
-    response = request.execute()
-    if logging_enabled:
-        logging.info(f"Uploaded video with filename {filename}")
-        logging.info(response)
+        response = request.execute()
+        if logging_enabled:
+            logging.info(f"Uploaded video with filename {filename}")
+            logging.info(response)
 
-    # Get the videoId from the response
-    video_id = response['id']
+        # Get the videoId from the response
+        video_id = response['id']
 
-    # Add the video to the playlist
-    add_to_playlist(youtube, playlist_id, video_id, logging_enabled)
+        # Add the video to the playlist
+        add_to_playlist(youtube, playlist_id, video_id, logging_enabled)
+    except socket.timeout:
+        if logging_enabled:
+            logging.error("Socket timeout occurred during the video upload process.")
+    except exceptions.RefreshError:
+        if logging_enabled:
+            logging.error("Authentication error (401) occurred during the video upload process.")
 
 def add_to_playlist(youtube, playlist_id, video_id, logging_enabled):
-    request = youtube.playlistItems().insert(
-        part="snippet",
-        body={
-            "snippet": {
-                "playlistId": playlist_id,
-                "resourceId": {
-                    "kind": "youtube#video",
-                    "videoId": video_id
+    try:
+        request = youtube.playlistItems().insert(
+            part="snippet",
+            body={
+                "snippet": {
+                    "playlistId": playlist_id,
+                    "resourceId": {
+                        "kind": "youtube#video",
+                        "videoId": video_id
+                    }
                 }
             }
-        }
-    )
-    response = request.execute()
-    if logging_enabled:
-        logging.info(f"Added video with id {video_id} to playlist with id {playlist_id}")
-        logging.info(response)
+        )
+
+        response = request.execute()
+        if logging_enabled:
+            logging.info(f"Added video with id {video_id} to playlist with id {playlist_id}")
+            logging.info(response)
+    except socket.timeout:
+        if logging_enabled:
+            logging.error("Socket timeout occurred during the playlist addition process.")
+    except exceptions.RefreshError:
+        if logging_enabled:
+            logging.error("Authentication error (401) occurred during the playlist addition process.")
 
 if __name__ == "__main__":
     import sys
