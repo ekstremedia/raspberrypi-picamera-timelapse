@@ -4,7 +4,7 @@ import subprocess
 # Set the command as a list of strings
 command = [
     'python', 
-    'new_overlay.py', 
+    'test_overlay.py', 
     '--file', 
     '/var/www/html/testimg.jpg', 
     '--test'

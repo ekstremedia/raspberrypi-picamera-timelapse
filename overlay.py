@@ -168,29 +168,28 @@ def draw_pi_info(draw):
     # 'Used Disk Space': '7.49 GB', 'Free Disk Space': '102.05 GB', 'Disk Usage Percentage': '6.80 %', 'Load Average': '0.40, 0.24, 0.19', 'Photos Captured Today': 1340, 
     # 'Total Size of Photos': '377.92 MB'}
 
-    temp_x = 2820
-    temp_y = 10
-    space_y = 48
-    disc_y = 82
+    temp_x = 2420
+    temp_y = 16
+    space_y = 62
+    data_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 35)
 
     # Check if data is available
     if data:
         # Extract the necessary data
         rpi =  f"RaspberryPi 4" 
-        cpu_temperature =  f"CPU temp: {data['CPU Temperature']}°C" 
-        memory =  f"Minne: {data['Used Memory']} / {data['Total Memory']} ({data['Memory Usage Percentage']})"
-        space =  f"Last: {data['Load Average']} - Lagring: {data['Used Disk Space']} / {data['Total Disk Space']} ({data['Disk Usage Percentage']})"
-        photos =  f"Bilder tatt i dag: {data['Photos Captured Today']}, total størrelse: {data['Total Size of Photos']}"
+        cpu_temperature =  f"CPU: {data['CPU Temperature']}°C" 
+        memory =  f"minne: {data['Used Memory']} / {data['Total Memory']}, last: {data['Load Average']}"
+        space =  f"Lagring: {data['Used Disk Space']} / {data['Total Disk Space']} ({data['Disk Usage Percentage']})"
+        photos =  f"Bilder tatt i dag: {data['Photos Captured Today']} ({data['Total Size of Photos']})"
         
-        topStr = f"{rpi} - {cpu_temperature} - {memory}"
+        topStr = f"{rpi}, {cpu_temperature}, {memory}"
+        secondStr = f"{space} - {photos}"
 
         # Define the font for the  data
-        data_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 23)
 
         # Draw the data on the image
-        draw.text((temp_x, temp_y),topStr, font=data_font, fill=(255, 255, 255))    
-        draw.text((temp_x, space_y),space, font=data_font, fill=(255, 255, 255))    
-        draw.text((temp_x, disc_y),photos, font=data_font, fill=(255, 255, 255))    
+        draw.text((temp_x, temp_y),topStr, font=data_font, fill=(220, 220, 255))    
+        draw.text((temp_x, space_y),secondStr, font=data_font, fill=(220, 220, 255))    
     
 
 def add_overlay(config, image_path, weather_data, test_mode):

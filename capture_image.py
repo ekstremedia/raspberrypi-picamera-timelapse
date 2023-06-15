@@ -74,7 +74,7 @@ def capture_image(config, logging_enabled):
         # Set the command as a list of strings
         command = [
             'python', 
-            'new_overlay.py', 
+            'overlay.py', 
             '--file', 
             file_name
         ]
