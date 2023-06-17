@@ -7,6 +7,7 @@ import logging
 from colorlog import ColoredFormatter
 import glob
 from PIL import Image
+from daylineImage import create_dayline_image
 
 def configure_logger():
     """Configure logger with colored output."""
@@ -41,13 +42,21 @@ def configure_logger():
     return logger
 
 
-def create_thumbnail(image_file):
+def create_thumbnail(image_file, resize=False):
     """Create thumbnail from a selected image file."""
     with Image.open(image_file) as img:
-        img.thumbnail((128, 128))
-        thumbnail_file = f'{os.path.splitext(image_file)[0]}_thumbnail.jpg'
-        img.save(thumbnail_file, "JPEG")
+        thumbnail_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'temp')
+        os.makedirs(thumbnail_folder, exist_ok=True)  # Create the "temp" folder if it doesn't exist
+        if resize:
+            thumbnail_file = os.path.join(thumbnail_folder, 'thumbnail.jpg')
+            img.thumbnail((512, 512))
+            img.save(thumbnail_file, "JPEG")
+        else:
+            thumbnail_file = os.path.join(thumbnail_folder, 'image.jpg')
+            img.save(thumbnail_file, "JPEG", quality=60)
+        
     return thumbnail_file
+
 
 def main(file, date, thumbnail):
     # Load configuration file
@@ -55,24 +64,48 @@ def main(file, date, thumbnail):
     with open(config_path, 'r') as config_file:
         config = yaml.safe_load(config_file)
 
-    image_output_path = os.path.join(config['image_output']['root_folder'], date.replace('-', '/'))
+    image_output_path = os.path.join(config['image_output']['root_folder'], date[:4], date[5:7], date[8:])
+
+    # Check if image files are available
+    image_files = sorted(glob.glob(f'{image_output_path}/*.jpg'))
+    if not image_files:
+        logger.error(f"No image files found in the directory: {image_output_path}")
+        return
 
     # If thumbnail not provided, select a random image file from the middle of the image directory
     if not thumbnail:
-        image_files = sorted(glob.glob(f'{image_output_path}/*.jpg'))
         middle_image = image_files[len(image_files) // 2]
-        thumbnail = create_thumbnail(middle_image)
+
+        thumbnail = create_thumbnail(middle_image, resize=True)
+        regular_image = create_thumbnail(middle_image)
+
+        # Update the files dictionary with the correct middle image file
+        files = {
+            'video': open(file, 'rb'),
+            'thumbnail': open(thumbnail, 'rb'),
+            'image': open(regular_image, 'rb')
+        }
+    else:
+        # Only the video and thumbnail files are provided
+        files = {
+            'video': open(file, 'rb'),
+            'thumbnail': open(thumbnail, 'rb'),
+            'image': open(regular_image, 'rb')
+        }
+
+    try:
+        # Create the daylight image
+        dayline_image_path = create_dayline_image(image_output_path, 24)
+
+        # Use the daylight image as 'daylight' in the files dictionary
+        files['daylight'] = open(dayline_image_path, 'rb')
+    except Exception as e:
+        logger.error(f'Failed to create daylight image. Error: {str(e)}')
 
     # Prepare data for POST request
     data = {
         'title': os.path.basename(file),
         'date': date
-    }
-
-    files = {
-        'video': open(file, 'rb'),
-        'thumbnail': open(thumbnail, 'rb'),
-        'image': open(middle_image, 'rb')
     }
 
     # Prepare headers for the request
@@ -90,13 +123,22 @@ def main(file, date, thumbnail):
     else:
         logger.error(f'Failed to upload file. Server responded with status code {response.status_code}. Response body: {response.text}')
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Upload a timelapse video and thumbnail to a server.')
     parser.add_argument('--file', required=True, help='Path to the video file.')
-    parser.add_argument('--date', required=True, help='Date of the video in YYYY-MM-DD format.')
+    parser.add_argument('--date', required=False, help='Date of the video in YYYY-MM-DD format.')
     parser.add_argument('--thumbnail', required=False, help='Path to the thumbnail image file.')
     args = parser.parse_args()
-    
+
     logger = configure_logger()
 
-    main(args.file, args.date, args.thumbnail)
+    if not args.date:
+        # Extract the date from the --file argument if --date is not provided
+        filename = os.path.basename(args.file[-14:-4])
+        # print(filename[-14:-4])
+        date = filename.replace('_', '-')
+    else:
+        date = args.date
+
+    main(args.file, date, args.thumbnail)

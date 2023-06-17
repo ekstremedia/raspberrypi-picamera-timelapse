@@ -9,3 +9,5 @@ oauth2.json
 logs/
 admin.html
 run.sh
+temp/
+old/
