@@ -82,12 +82,18 @@ def create_timelapse(config, date=None, debug_mode=False):
     log_message(f"{fg('green')}Timelapse video created{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{video_path}{attr('reset')}")
     log_message(f"{fg('green')}Duration{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{end_time - start_time:.2f} seconds")
 
-    video_title = f"Kringelen Timelapse {specified_date_str}"
-    video_description = f"This is a timelapse video for {specified_date_str} created by my Raspberry Pi camera."
+    #video_title = f"Kringelen Timelapse {specified_date_str}"
+    #video_description = f"This is a timelapse video for {specified_date_str} created by my Raspberry Pi camera."
+    #upload_command = ['python', 'youtube-upload.py', video_path, video_title, video_description]
+    #subprocess.run(upload_command, check=True)
+    #print(upload_command)
 
-    upload_command = ['python', 'youtube-upload.py', video_path, video_title, video_description]
-    subprocess.run(upload_command, check=True)
-    print(upload_command)
+    # Upload file
+    if config.get('video_upload', {}).get('enabled', False):
+        upload_script = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'scripts', 'upload-timelapse-video.py')
+        date_arg = specified_date.strftime('%Y-%m-%d')  # Format the date as 'YYYY-MM-DD'
+        upload_command = ['python', upload_script, '--file', video_path, '--date', date_arg]
+        subprocess.run(upload_command, check=True)
 
 def log_message(*messages):
     log_path = os.path.join('logs', 'timelapse.log')
