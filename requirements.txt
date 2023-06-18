@@ -4,3 +4,6 @@ argparse
 colorlog
 Pillow
 opencv-python
+colored
+picamera2
+tqdm
