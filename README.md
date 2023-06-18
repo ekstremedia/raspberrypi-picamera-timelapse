@@ -1,4 +1,5 @@
 # Raspberry Pi Timelapse
+![Video](examples/timelapse_2023_06_17.mp4)
 
 Python3 scripts for capturing images using Raspberry Pi with [libcamera](https://libcamera.org/) and PiCamera v2 or v3.
 
@@ -20,7 +21,17 @@ Copy [example_config.yaml](example_config.yaml) to `config.yaml` and edit it to 
 [timelapse.py](timelapse.py) will start the timelapse script that runs `capture_image.py` at the interval set in config.
 
     python timelapse.py
+Can be set in crontab to start at boot:
 
+    @reboot timelapse python /home/pi/raspberrypi-picamera-timelapse/timelapse.py
+
+Or as a screen process:
+
+    @reboot screen -dmS timelapse python /home/pi/raspberrypi-picamera-timelapse/timelapse.py
+
+Then you could later resume the screen to see its progress:
+
+    screen -r timelapse
 ## Create timelapse videos
 
 Requires [ffmpeg](https://ffmpeg.org/) installed.
@@ -41,11 +52,7 @@ Run [create-timelapse.py](create-timelapse.py) to create a timelapse of yesterda
         ('-b:v', str(config['video_output']['bitrate']))
     ]
 
-Can be set in crontab to start at boot:
-
-    @reboot screen -dmS timelapse python /home/pi/raspberrypi-picamera-timelapse/timelapse.py
-
-Or specify a date:
+Specify a date to make timelapse of:
 
     python create-timelapse.py --date 2023-06-09
 
@@ -65,6 +72,7 @@ Too see video specs:
 
 ## Test scripts
 ### Day  slice
+![Video](examples/dayline-2023-06-17.jpg)
 
 To create a day slice image with [scripts/daylineImage.py](scripts/daylineImage.py):
 
@@ -72,6 +80,9 @@ To create a day slice image with [scripts/daylineImage.py](scripts/daylineImage.
         --folder /var/www/html/images/2023/06/17 
         --date 2023-06-17 
         --slices 24
+
+It will create lines of day and put it from left to right as the final image.
+`--slices` will define how many lines to put. Example photo has 48, so every line represent 30 minutes.
 
 Will be created in `temp/dayline-2023-06-17.jpg`
 
