@@ -1,1 +1,0 @@
-{"02:00:00:5f:3f:f8": {"Temperature": 15.3, "Humidity": 78}, "05:00:00:06:5f:30": {"Rain": 0, "sum_rain_1": 0, "sum_rain_24": 0}, "06:00:00:05:7b:ca": {"WindStrength": 1, "WindAngle": 270, "GustStrength": 3, "GustAngle": 308, "max_wind_str": 15, "max_wind_angle": 32, "date_max_wind_str": 1687043171}, "symbol": "clearsky_day"}
