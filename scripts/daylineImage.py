@@ -7,7 +7,10 @@ from datetime import datetime
 import re
 from tqdm import tqdm
 
-def create_dayline_image(folder, slices):
+def create_dayline_image(folder, slices, date):
+    print(f"Folder: {folder}")
+    print(f"Slices: {slices}")
+    print(f"Date: {date}")
     # Get the list of all files in directory tree at given path
     list_of_files = [os.path.join(dp, f) for dp, dn, filenames in os.walk(folder) for f in filenames if f.endswith(".jpg")]
 
@@ -24,7 +27,7 @@ def create_dayline_image(folder, slices):
 
     final_image = None
 
-    for i in tqdm(range(slices), desc="Creating day slices"):
+    for i in tqdm(range(slices), desc=f"Creating day slices for {date}"):
         # Read image
         img = cv2.imread(list_of_files[i*images_per_slice])
         
@@ -40,13 +43,12 @@ def create_dayline_image(folder, slices):
             final_image = np.hstack((final_image, img_slice))
 
     # Save the final image
-    date = re.search(r"\d{4}_\d{2}_\d{2}", list_of_files[0]).group()
-    date = date.replace("_", "-")
     temp_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'temp')
     os.makedirs(temp_folder, exist_ok=True)
-    save_path = os.path.join(temp_folder, "dayline-" + date + ".jpg")
+    save_path = os.path.join(temp_folder, "dayline-" + date.replace('/', '-') + ".jpg")
     cv2.imwrite(save_path, final_image)
-    
+    # print(f"Saved dayline image to {save_path}")
+    # print(f"Final image: {final_image}")
     # Return the path of the final image
     return save_path
 
@@ -56,6 +58,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--folder", type=str, required=True, help="Folder with images")
     parser.add_argument("--slices", type=int, default=48, help="Number of slices to create")
+    parser.add_argument("--date", type=str, default=48, help="Date")
     args = parser.parse_args()
     
-    create_dayline_image(args.folder, args.slices)
+    create_dayline_image(args.folder, args.slices, args.date)

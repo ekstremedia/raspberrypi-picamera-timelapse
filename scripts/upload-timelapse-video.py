@@ -64,6 +64,7 @@ def main(file, date, thumbnail):
     with open(config_path, 'r') as config_file:
         config = yaml.safe_load(config_file)
 
+    print(date[:4], date[5:7], date[8:])
     image_output_path = os.path.join(config['image_output']['root_folder'], date[:4], date[5:7], date[8:])
 
     # Check if image files are available
@@ -95,13 +96,15 @@ def main(file, date, thumbnail):
 
     try:
         # Create the daylight image
-        dayline_image_path = create_dayline_image(image_output_path, 24)
+        dayline_image_path = create_dayline_image(image_output_path, 48, date)
+        print(f"image_output_path {image_output_path}")
 
         # Use the daylight image as 'daylight' in the files dictionary
         files['daylight'] = open(dayline_image_path, 'rb')
     except Exception as e:
-        logger.error(f'Failed to create daylight image. Error: {str(e)}')
+        logger.error(f'Failed to create dayline image. Error: {str(e)}')
 
+    # print(files)
     # Prepare data for POST request
     data = {
         'title': os.path.basename(file),
@@ -136,9 +139,10 @@ if __name__ == "__main__":
     if not args.date:
         # Extract the date from the --file argument if --date is not provided
         filename = os.path.basename(args.file[-14:-4])
-        # print(filename[-14:-4])
         date = filename.replace('_', '-')
+        print(f"date: {date}")
     else:
         date = args.date
+        print(f"date: {date}")
 
     main(args.file, date, args.thumbnail)

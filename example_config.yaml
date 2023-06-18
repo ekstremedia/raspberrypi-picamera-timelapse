@@ -1,37 +1,44 @@
 # Main settings
-camera_name: 'Kringelen'
-main_size: [1920, 1080]
+camera_name: 'Timelapse camera'
+main_size: [3840, 2160]
 lores_size: [640, 480]
 display: 'main'
 awb_enable: False
 awb_mode: 'Daylight'
 colour_gains: [2.1, 1.5]
-filename_prefix: 'kringelen_timelapse_'
-interval: 60
+filename_prefix: 'timelapse_'
+interval: 50
 status_file: '/var/www/html/status.jpg'
+focus_mode: 'manual'
+lens_position: 0.0  #0.0 = infinity, 1 sharp, 10 unsharp
+hdr: true
+image_quality: 90
 
-# Timelapse ffmpeg settings
-framerate: 25
-bitrate: 44000
-video_format: mp4
+# Logging
+log_youtube_upload: true
+log_capture_image: true
+log_overlay: true
 
 # Image output
 image_output:
   root_folder: '/var/www/html/images/'
   folder_structure: '%Y/%m/%d/'
-  filename_prefix: 'kringelen_'
+  filename_prefix: 'timelapse_'
 
 # Timelapse output
 video_output:
   root_folder: '/var/www/html/videos/'
-  folder_structure: '%Y/%m/'           # 2023/06/20/
+  folder_structure: '%Y/%m/'           # 2023/06/
   filename_prefix: 'timelapse_'
   video_width: 1920
-  video_height: 1080
-  video_quality: 23
+  video_height: 1160
+  framerate: 25
+  bitrate: 5000000
+  video_format: mp4
+  constant_rate_factor: 23
 
-debug_mode:
-  video_width: 640
-  video_height: 480
-  video_quality: 20
+video_upload: 
+  enabled: true
+  url: 'https://example.com/api/piVideo/store'
+  api_key: ''
 

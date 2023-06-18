@@ -11,3 +11,4 @@ admin.html
 run.sh
 temp/
 old/
+cache/netatmo.json

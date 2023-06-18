@@ -1,29 +1,27 @@
 #!/usr/bin/python
 import os
 import subprocess
-import time
 import datetime
 import yaml
-import sys
+import argparse
 from colored import fg, attr
+from scripts import ffmpeg as ff_script
+from scripts.logger import log_message
 
 def load_config(config_path):
     with open(config_path, 'r') as config_file:
         return yaml.safe_load(config_file)
 
-def create_timelapse(config, date=None, debug_mode=False):
+def create_timelapse(config, date=None, upload=True, debug=False):
     # Get the specified or previous day's date
     if date:
         try:
-            specified_date = datetime.datetime.strptime(date, '%Y/%m/%d').date()
+            specified_date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
         except ValueError:
-            log_message("Invalid date format. Please provide the date in the format 'YYYY/MM/DD'.")
+            log_message("Invalid date format. Please provide the date in the format 'YYYY-MM-DD'.")
             return
     else:
         specified_date = datetime.date.today() - datetime.timedelta(days=1)
-
-    # Convert specified_date to a datetime.datetime object
-    specified_datetime = datetime.datetime.combine(specified_date, datetime.datetime.min.time())
 
     # Convert date to string format
     specified_date_str = specified_date.strftime('%Y/%m/%d')
@@ -37,80 +35,38 @@ def create_timelapse(config, date=None, debug_mode=False):
         return
 
     # Create the timelapse video folder if it doesn't exist
-    video_folder = os.path.join(config['video_output']['root_folder'], specified_date.strftime(config['video_output']['folder_structure']))
+    if debug:
+        video_folder = "/var/www/html/public/video-debug/"
+    else:
+        video_folder = os.path.join(config['video_output']['root_folder'], specified_date.strftime(config['video_output']['folder_structure']))
+    
     os.makedirs(video_folder, exist_ok=True)
 
     # Generate the video filename and video parameters
-    if debug_mode:
-        video_filename = f"{config['video_output']['filename_prefix']}{specified_date.strftime('%Y_%m_%d')}_debug.{config['video_format']}"
-        video_width = config['debug_mode']['video_width']
-        video_height = config['debug_mode']['video_height']
-        video_quality = config['debug_mode']['video_quality']
+    if debug:
+        video_filename = f"{specified_date.strftime('%Y_%m_%d')}_{config['video_output']['video_width']}_{config['video_output']['video_height']}_{config['video_output']['constant_rate_factor']}.{config['video_output']['video_format']}"
     else:
-        video_filename = f"{config['video_output']['filename_prefix']}{specified_date.strftime('%Y_%m_%d')}.{config['video_format']}"
-        video_width = config['video_output']['video_width']
-        video_height = config['video_output']['video_height']
-        video_quality = config['video_output']['video_quality']
+        video_filename = f"{config['video_output']['filename_prefix']}{specified_date.strftime('%Y_%m_%d')}.{config['video_output']['video_format']}"
+
 
     video_path = os.path.join(video_folder, video_filename)
 
-    # Get the image files in the specified date range, sorted by creation time (oldest first)
-    image_files = sorted(os.listdir(image_folder), key=lambda f: os.path.getmtime(os.path.join(image_folder, f)))
-
-    # Build the ffmpeg command
-    ffmpeg_command = [
-        'ffmpeg',
-        '-y',  # Overwrite the output file without asking for confirmation
-        '-framerate', str(config['framerate']),
-        '-pattern_type', 'glob',
-        '-i', f"{os.path.join(image_folder, '*.jpg')}",
-        '-vf', f"minterpolate='mi_mode=mci:mc_mode=aobmc:me_mode=bidir:me_range=16',deflicker",
-        '-c:v', 'libx264',
-        '-crf', str(video_quality),
-        '-pix_fmt', 'yuv420p',
-        '-vf', f"scale={video_width}:{video_height}",
-        '-b:v', str(config['bitrate']),
-        video_path
-    ]
-
-    log_message(f"{fg('green')}Starting timelapse...{attr('reset')}")
-
-    start_time = time.time()
-    output = subprocess.run(ffmpeg_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True)
-    end_time = time.time()
-
-    log_message(f"{fg('green')}Timelapse video created{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{video_path}{attr('reset')}")
-    log_message(f"{fg('green')}Duration{attr('reset')}{fg('dark_green')}: {attr('reset')}{fg(135)}{end_time - start_time:.2f} seconds")
-
-    #video_title = f"Kringelen Timelapse {specified_date_str}"
-    #video_description = f"This is a timelapse video for {specified_date_str} created by my Raspberry Pi camera."
-    #upload_command = ['python', 'youtube-upload.py', video_path, video_title, video_description]
-    #subprocess.run(upload_command, check=True)
-    #print(upload_command)
+    ff_script.ffmpeg_command(image_folder, video_path, config)
 
     # Upload file
-    if config.get('video_upload', {}).get('enabled', False):
+    if upload and config.get('video_upload', {}).get('enabled', False):
         upload_script = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'scripts', 'upload-timelapse-video.py')
         date_arg = specified_date.strftime('%Y-%m-%d')  # Format the date as 'YYYY-MM-DD'
         upload_command = ['python', upload_script, '--file', video_path, '--date', date_arg]
         subprocess.run(upload_command, check=True)
 
-def log_message(*messages):
-    log_path = os.path.join('logs', 'timelapse.log')
-    log_dir = os.path.dirname(log_path)
-    os.makedirs(log_dir, exist_ok=True)
-
-    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    log_line = f"[{timestamp}] {attr('reset')}{' '.join(map(str, messages))}\n"
-
-    print(*messages)  # Print the messages with colors
-
-    with open(log_path, 'a') as log_file:
-        log_file.write(log_line)
-
 if __name__ == "__main__":
-    config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
-    date_arg = sys.argv[1] if len(sys.argv) > 1 else None
-    debug_mode = sys.argv[2] == "debug" if len(sys.argv) > 2 else False
+    parser = argparse.ArgumentParser(description='Create a timelapse video.')
+    parser.add_argument('--date', type=str, required=False, help='The date for which to create a timelapse video. Format: YYYY-MM-DD')
+    parser.add_argument('--dont-upload', action='store_true', help='If set, the video will not be uploaded.')
+    parser.add_argument('--debug', action='store_true', help='If set, debug mode will be enabled.')
+    args = parser.parse_args()
 
-    create_timelapse(config, date_arg, debug_mode)
+    config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
+    create_timelapse(config, args.date, not args.dont_upload, args.debug)
+
