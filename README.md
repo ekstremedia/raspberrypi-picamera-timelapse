@@ -64,7 +64,6 @@ Too see video specs:
     ffprobe -i /var/www/html/public/video-debug/2023_06_09_1920_1160_23.mp4
 
 ## Test scripts
-----
 ### Day  slice
 
 To create a day slice image with [scripts/daylineImage.py](scripts/daylineImage.py):
