@@ -15,6 +15,8 @@ Copy [example_config.yaml](example_config.yaml) to `config.yaml` and edit it to 
 
 [capture_image.py](capture_image.py) takes the photo and put on the overlay made in [overlay.py](overlay.py)
 
+    python capture_image.py
+
 [timelapse.py](timelapse.py) will start the timelapse script that runs `capture_image.py` at the interval set in config.
 
     python timelapse.py
@@ -67,11 +69,16 @@ Too see video specs:
 
 To create a day slice image with [scripts/daylineImage.py](scripts/daylineImage.py):
 
-    python scripts/daylineImage.py --folder /var/www/html/images/2023/06/17 --date 2023-06-17 --slices 24
+    python scripts/daylineImage.py 
+        --folder /var/www/html/images/2023/06/17 
+        --date 2023-06-17 
+        --slices 24
 
 Will be created in `temp/dayline-2023-06-17.jpg`
 
 ### Test upload
 To test upload a video:
 
-    python scripts/upload-timelapse-video.py --file /var/www/html/videos/2023/06/timelapse_2023_06_16.mp4 --date 2023-06-16
+    python scripts/upload-timelapse-video.py 
+        --file /var/www/html/videos/2023/06/timelapse_2023_06_16.mp4 
+        --date 2023-06-16
