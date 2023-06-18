@@ -1,5 +1,5 @@
 # Raspberry Pi Timelapse
-[![Video](https://img.youtube.com/vi/o0m9SC9ShTE/0.jpg)](https://www.youtube.com/watch?v=o0m9SC9ShTE)
+[![Video](https://img.youtube.com/vi/o0m9SC9ShTE/maxresdefault.jpg)](https://www.youtube.com/watch?v=o0m9SC9ShTE)
 
 
 Python3 scripts for capturing images using Raspberry Pi with [libcamera](https://libcamera.org/) and PiCamera v2 or v3.
