@@ -6,9 +6,14 @@ Python3 scripts for capturing images using Raspberry Pi with [libcamera](https:/
 
 Be sure to read the [Picamera2 manual](https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf) and see [their github for indepth python usage](https://github.com/raspberrypi/picamera2).
 
+## Required modules
 
 Using the following python modules, see [requirements.txt](requirements.txt): 
-> requests pyyaml argparse colorlog Pillow opencv-python colored picamera2 tqdm
+> requests pyyaml argparse colorlog Pillow opencv-python colored picamera2 tqdm psutil
+
+Install the required modules for python
+
+     pip install -r requirements.txt
 
 ## Config
 Copy [example_config.yaml](example_config.yaml) to `config.yaml` and edit it to your specifications.
