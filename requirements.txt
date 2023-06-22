@@ -7,3 +7,4 @@ opencv-python
 colored
 picamera2
 tqdm
+psutil
