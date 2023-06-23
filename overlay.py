@@ -13,6 +13,7 @@ from getWeather import get_weather_data
 # Add the scripts directory to Python's module path
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), 'scripts'))
 
+
 # Load configuration from yaml file
 def load_config(config_path):
     with open(config_path, 'r') as config_file:
@@ -29,7 +30,14 @@ def setup_logging(config):
         return True
     else:
         return False
-    
+
+
+# Load the configuration file
+config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
+
+# Set up logging
+logging_enabled = setup_logging(config)
+
 # Create gradient for overlay
 def create_gradient(draw, width):
     for y in range(120):
@@ -105,7 +113,7 @@ def draw_weather_data(draw, weather_data):
     # Define the starting point and spacing for the weather data
     temp_x = 180
     rain_x = 500
-    wind_x = 820
+    wind_x = 890
     wind_icon_x = 440
     wind_icon_y = 45
     data_y = 26
@@ -192,9 +200,13 @@ def draw_pi_info(draw):
         draw.text((temp_x, space_y),secondStr, font=data_font, fill=(220, 220, 255))    
     
 
-def add_overlay(config, image_path, weather_data, test_mode):
-    if test_mode == True:
-        print("TEST MODE")
+def add_overlay(config, image_path):
+
+    print("Add_overlay started")
+
+    test_mode = False
+    # if test_mode == True:
+    #     print("TEST MODE")
     # Open the image and get its size
     img = Image.open(image_path)
     width, height = img.size
@@ -213,37 +225,68 @@ def add_overlay(config, image_path, weather_data, test_mode):
     draw_date(draw, width)
     draw_pi_info(draw)
 
-    # Attempt to draw the weather icon and data on the new image
-    try:
-        draw_weather_icon(new_img, weather_data, width)
-        draw_weather_data(draw, weather_data)
-    except Exception as e:
-        print(f"Failed to load weather data: {e}")
 
-    # Save the new image and copy it to the status file location
+    # Attempt to get the weather data
+    try:
+        weather_data = get_weather_data()
+        if logging_enabled:
+            logging.info("Weather data retrieved successfully.")
+        # Attempt to draw the weather icon and data on the new image
+        try:
+            draw_weather_icon(new_img, weather_data, width)
+            draw_weather_data(draw, weather_data)
+        except Exception as e:
+            print(f"Failed to load weather data: {e}")            
+
+    except Exception as e:
+        print(f"Failed to get weather data: {e}")
+        weather_data = None
+        if logging_enabled:
+            logging.error(f"Failed to get weather data: {e}")
+
+
+
+    # # Save the new image and copy it to the status file location
     if not test_mode:
         new_img.save(image_path)
     else:
         new_img.save("/var/www/html/overlay.jpg")
 
-    if not test_mode:
-        shutil.copy2(image_path, config['status_file'])
+    # if not test_mode:
+        
+
+
+    print("Overlay added!")
     # else:
         # shutil.copy2(image_path, "/var/www/html/overlay.jpg")
         # print(f"Copying {image_path}, /var/www/html/overlay.jpg")
 
 if __name__ == "__main__":
+    print("__main__ started")
     # Parse command line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('--file', help='The file path of the image.')
     parser.add_argument('--test', action='store_true', help='Enable test mode.')
     args = parser.parse_args()
 
-    # Load the configuration file
-    config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
+    # Log the image path
+    if logging_enabled:
+        logging.info(f"Image path: {args.file}")
 
-    # Set up logging
-    logging_enabled = setup_logging(config)
+    # Add the overlay to the image
+    try:
+        add_overlay(config, args.file)
+        if logging_enabled:
+            logging.info("Overlay added successfully.")
+    except Exception as e:
+        print(f"Failed to add overlay: {e}")
+        if logging_enabled:
+            logging.error(f"Failed to add overlay: {e}")
+    # Parse command line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--file', help='The file path of the image.')
+    parser.add_argument('--test', action='store_true', help='Enable test mode.')
+    args = parser.parse_args()
 
     # Log the image path
     if logging_enabled:
@@ -259,13 +302,3 @@ if __name__ == "__main__":
         weather_data = None
         if logging_enabled:
             logging.error(f"Failed to get weather data: {e}")
-
-    # Add the overlay to the image
-    try:
-        add_overlay(config, args.file, weather_data, args.test)
-        if logging_enabled:
-            logging.info("Overlay added successfully.")
-    except Exception as e:
-        print(f"Failed to add overlay: {e}")
-        if logging_enabled:
-            logging.error(f"Failed to add overlay: {e}")

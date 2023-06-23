@@ -4,9 +4,11 @@ import yaml
 import os
 from datetime import datetime
 from picamera2 import Picamera2
+import shutil
 import libcamera
 import subprocess
 import logging
+from overlay import add_overlay  # import add_overlay function from overlay.py
 
 # Load configuration from yaml file
 def load_config(config_path):
@@ -69,22 +71,18 @@ def capture_image(config, logging_enabled):
         file_name = os.path.join(dir_name, f"{config['image_output']['filename_prefix']}{now.strftime('%Y_%m_%d_%H_%M_%S')}.jpg")
 
         camera.capture_file(file_name)
-        # subprocess.run(['python', '/home/pi/raspberrypi-picamera-timelapse/new_overlay.py', file_name])
-        
-        # Set the command as a list of strings
-        command = [
-            'python', 
-            'overlay.py', 
-            '--file', 
-            file_name
-        ]
 
-        # Use subprocess to run the command
-        subprocess.run(command)        
-        
+        if config['overlay']['enabled']:
+            add_overlay(config, file_name)
+
         if logging_enabled:
             logging.info(f"Image captured and saved to {file_name}")
-        print("Finished")
+
+        if (config['status_file']):
+            shutil.copy2(file_name, config['status_file'])            
+            print(f"Copied {file_name} to {config['status_file']}")
+        
+        print(f"Saved file {file_name}")
 
 if __name__ == "__main__":
     config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
