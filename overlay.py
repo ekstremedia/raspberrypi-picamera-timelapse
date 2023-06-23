@@ -114,7 +114,7 @@ def draw_weather_data(draw, weather_data):
     temp_x = 180
     rain_x = 500
     wind_x = 890
-    wind_icon_x = 440
+    wind_icon_x = 490
     wind_icon_y = 45
     data_y = 26
 
