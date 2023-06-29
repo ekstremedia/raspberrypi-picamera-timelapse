@@ -97,7 +97,7 @@ def main(file, date, thumbnail):
 
     try:
         # Create the daylight image
-        dayline_image_path = create_dayline_image(image_output_path, 1, date)
+        dayline_image_path = create_dayline_image(image_output_path, 48, date)
         print(f"image_output_path {image_output_path}")
 
         # Use the daylight image as 'daylight' in the files dictionary
