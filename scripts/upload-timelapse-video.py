@@ -66,6 +66,7 @@ def main(file, date, thumbnail):
 
     print(date[:4], date[5:7], date[8:])
     image_output_path = os.path.join(config['image_output']['root_folder'], date[:4], date[5:7], date[8:])
+    camera_id = config['camera_id']
 
     # Check if image files are available
     image_files = sorted(glob.glob(f'{image_output_path}/*.jpg'))
@@ -108,7 +109,8 @@ def main(file, date, thumbnail):
     # Prepare data for POST request
     data = {
         'title': os.path.basename(file),
-        'date': date
+        'date': date,
+        'camera_id': camera_id
     }
 
     # Prepare headers for the request
@@ -119,6 +121,10 @@ def main(file, date, thumbnail):
     # Send POST request to the server
     response = requests.post(config['video_upload']['url'], files=files, data=data, headers=headers)
 
+    print(f"Uploading to: {config['video_upload']['url']}")
+    print(f"Files: {files}")
+    print(f"Headers: {headers}")
+    print(f"Data: {data}")
     # Handle server response
     if response.status_code == 200:
         logger.info('File uploaded successfully.')
