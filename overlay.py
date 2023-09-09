@@ -8,11 +8,22 @@ import shutil
 import sys
 import logging
 import argparse
+import json
 from getWeather import get_weather_data
 
 # Add the scripts directory to Python's module path
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), 'scripts'))
 
+def load_camera_state_from_json():
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    camera_state_file = os.path.join(script_dir, 'data', 'camera_state.json')
+    
+    try:
+        with open(camera_state_file, "r") as file:
+            state = json.load(file)
+            return state["shutter_speed"], state["gain"]
+    except (FileNotFoundError, KeyError):
+        return None, None
 
 # Load configuration from yaml file
 def load_config(config_path):
@@ -181,16 +192,24 @@ def draw_pi_info(draw):
     space_y = 62
     data_font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 35)
 
+    # Load the shutter_speed and gain
+    shutter_speed, gain = load_camera_state_from_json()
+
+    if shutter_speed is not None and gain is not None:
+        camera_state_line = f"Shutter: {shutter_speed}, Gain: {gain}"
+    else:
+        camera_state_line = "Shutter/Gain data not available"
+
+
     # Check if data is available
     if data:
         # Extract the necessary data
         rpi =  f"RaspberryPi 4" 
         cpu_temperature =  f"CPU: {data['CPU Temperature']}°C" 
-        memory =  f"minne: {data['Used Memory']} / {data['Total Memory']}, last: {data['Load Average']}"
         space =  f"Lagring: {data['Used Disk Space']} / {data['Total Disk Space']} ({data['Disk Usage Percentage']})"
         photos =  f"Bilder tatt i dag: {data['Photos Captured Today']} ({data['Total Size of Photos']})"
         
-        topStr = f"{rpi}, {cpu_temperature}, {memory}"
+        topStr = f"{rpi}, {cpu_temperature}, {camera_state_line}"
         secondStr = f"{space} - {photos}"
 
         # Define the font for the  data
