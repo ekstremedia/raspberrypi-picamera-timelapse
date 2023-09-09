@@ -14,3 +14,4 @@ old/
 cache/netatmo.json
 .vscode/
 old/
+data/camera_state.json
