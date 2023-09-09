@@ -43,11 +43,14 @@ def load_camera_state():
 
 
 def save_camera_state(shutter_speed, gain):
-    with open("./data/camera_state.json", "w") as file:
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    camera_state_file = os.path.join(script_dir, 'data', 'camera_state.json')
+    with open(camera_state_file, "w") as file:
         json.dump({"shutter_speed": shutter_speed, "gain": gain}, file)
 
-def load_sun_data():
-    with open('./data/sun_data_2023.json', 'r') as file:
+
+def load_sun_data(sun_data_file):
+    with open(sun_data_file, 'r') as file:
         return json.load(file)
 
 def get_sun_times(date, sun_data):
@@ -70,9 +73,11 @@ def capture_night_image(config, logging_enabled, shutter_speed, gain):
         # Set focus mode and lens position based on config
         focus_mode = libcamera.controls.AfModeEnum.Manual if config['focus_mode'] == 'manual' else libcamera.controls.AfModeEnum.Auto
         lens_position = config['lens_position'] if config['focus_mode'] == 'manual' else None
+
         # Debugging lines
-        print(f"Shutter Speed: {shutter_speed}, Type: {type(shutter_speed)}")
-        print(f"Gain: {gain}, Type: {type(gain)}")
+        # print(f"Shutter Speed: {shutter_speed}, Type: {type(shutter_speed)}")
+        # print(f"Gain: {gain}, Type: {type(gain)}")
+
         camera_config = camera.create_still_configuration(
             main={"size": tuple(config['main_size'])},
             lores={"size": tuple(config['lores_size'])},
@@ -114,8 +119,11 @@ def capture_night_image(config, logging_enabled, shutter_speed, gain):
 
 # Main function
 if __name__ == "__main__":
-    config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
-    sun_data = load_sun_data()
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    config = load_config(os.path.join(script_dir, 'config.yaml'))
+    sun_data_file = os.path.join(script_dir, 'data', 'sun_data_2023.json')
+
+    sun_data = load_sun_data(sun_data_file)
     
     # Load sunset and sunrise times
     today = datetime.datetime.now().date()
