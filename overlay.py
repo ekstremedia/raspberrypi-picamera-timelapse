@@ -196,7 +196,7 @@ def draw_pi_info(draw):
     shutter_speed, gain = load_camera_state_from_json()
 
     if shutter_speed is not None and gain is not None:
-        camera_state_line = f"Shutter: {shutter_speed}, Gain: {gain}"
+        camera_state_line = f"Shutter speed: {shutter_speed}, Gain: {gain}"
     else:
         camera_state_line = "Shutter/Gain data not available"
 
