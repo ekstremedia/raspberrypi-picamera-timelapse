@@ -9,3 +9,5 @@ picamera2
 tqdm
 psutil
 python-dateutil
+prettytable
+termcolor

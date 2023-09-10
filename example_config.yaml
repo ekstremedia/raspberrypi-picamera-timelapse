@@ -24,6 +24,7 @@ image_output:
   root_folder: '/var/www/html/images/'
   folder_structure: '%Y/%m/%d/'
   filename_prefix: 'timelapse_'
+  test_folder: '/var/www/html/'
 
 # Timelapse output
 video_output:
