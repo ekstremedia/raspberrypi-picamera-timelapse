@@ -161,7 +161,7 @@ def capture_night_image(config, logging_enabled, shutter_speed, gain, test_mode=
             file_name = os.path.join(dir_name, f"{config['image_output']['filename_prefix']}{now.strftime('%Y_%m_%d_%H_%M_%S')}.jpg")
 
         camera.capture_file(file_name)
-        shutil.copy2(file_name, config['test_file'])
+        # shutil.copy2(file_name, config['test_file'])
 
         if not test_mode and config['overlay']['enabled']:
             add_overlay(config, file_name)
