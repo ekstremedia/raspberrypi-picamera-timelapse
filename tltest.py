@@ -26,20 +26,8 @@ def is_within_transition_period(sunrise_time, sunset_time):
     sunrise = datetime.strptime(sunrise_time, '%H:%M') + timedelta(minutes=SUNRISE_OFFSET_MINUTES)
     sunset = datetime.strptime(sunset_time, '%H:%M')
     now = datetime.now()
+    print(f"now {now}")
     return sunset <= now <= sunset + timedelta(hours=2) or sunrise <= now <= datetime.strptime(sunrise_time, '%H:%M')
-
-def is_nighttime(sunrise_time, sunset_time):
-    sunset_end_transition = datetime.strptime(sunset_time, '%H:%M') + timedelta(hours=2)  # end of transition after sunset
-    sunrise_start_transition = datetime.strptime(sunrise_time, '%H:%M') + timedelta(minutes=SUNRISE_OFFSET_MINUTES)  # start of transition before sunrise
-    now = datetime.now().time()
-
-    # Check if the time is after sunset's transition and before midnight
-    if sunset_end_transition.time() <= now:
-        return True
-    # Check if the time is after midnight and before sunrise's transition
-    elif now <= sunrise_start_transition.time():
-        return True
-    return False
 
 def timelapse(config):
     sun_data = load_sun_data()
@@ -52,21 +40,15 @@ def timelapse(config):
         
         # If there's "never_sets", just run the daytime script
         if sunrise_time == "never_sets" or sunset_time == "never_sets":
-            print("Running daytime script 1")
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image.py')])
-        # If it's within the transition period, run the nighttime script
+            print("Running daytime script")
+        # If it's nighttime or within the transition period, run the nighttime script
         elif is_within_transition_period(sunrise_time, sunset_time):
-            print("Running nighttime script (transition)")
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image_night.py')])
-        # If it's nighttime, run the nighttime script
-        elif is_nighttime(sunrise_time, sunset_time):
-            print("Running nighttime script")
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image_night.py')])
         # Otherwise, run the daytime script
+            print(f"Running nighttime script {is_within_transition_period(sunrise_time,sunset_time)} {sunset_time} {sunrise_time}")
         else:
-            print("Running daytime script 2")
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image.py')])
-
+            print(f"Running nighttime script {is_within_transition_period(sunrise_time,sunset_time)} {sunset_time} {sunrise_time}")
+            print("Running daytime script")
+        
         time.sleep(interval)
 
 if __name__ == "__main__":

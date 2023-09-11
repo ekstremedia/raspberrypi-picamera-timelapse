@@ -51,7 +51,8 @@ def capture_image(config, logging_enabled):
                 "AwbMode": getattr(libcamera.controls.AwbModeEnum, config['awb_mode']),
                 "AfMode": focus_mode,
                 "LensPosition": lens_position,
-                "ColourGains": tuple(config['colour_gains'])
+                "ColourGains": tuple(config['colour_gains']),
+                "AnalogueGain": 1
             }
         )
         camera.options['quality'] = config['image_quality']
@@ -69,7 +70,6 @@ def capture_image(config, logging_enabled):
         dir_name = os.path.join(config['image_output']['root_folder'], now.strftime(config['image_output']['folder_structure']))
         os.makedirs(dir_name, exist_ok=True)
         file_name = os.path.join(dir_name, f"{config['image_output']['filename_prefix']}{now.strftime('%Y_%m_%d_%H_%M_%S')}.jpg")
-
         camera.capture_file(file_name)
 
         if config['overlay']['enabled']:

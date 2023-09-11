@@ -15,10 +15,23 @@ import argparse
 
 # Constants
 DAYTIME_SHUTTER = 4489
-DAYTIME_GAIN = 0
+DAYTIME_GAIN = 1
 MAX_SHUTTER = 12000000
 MAX_GAIN = 8
 SUNRISE_OFFSET_MINUTES = -60  # Start transition 1 hour before actual sunrise
+SUNSET_OFFSET_MINUTES = -60
+
+def is_within_transition_period(sunrise_time, sunset_time):
+    sunrise = parser.parse(sunrise_time) + datetime.timedelta(minutes=SUNRISE_OFFSET_MINUTES)
+    sunset = parser.parse(sunset_time)
+    now = datetime.datetime.now()
+    return sunset <= now <= sunset + datetime.timedelta(hours=2) or sunrise <= now <= parser.parse(sunrise_time)
+
+def is_hour_before_sunrise(sunrise_time):
+    sunrise = parser.parse(sunrise_time)
+    start_decreasing_time = sunrise + datetime.timedelta(minutes=SUNRISE_OFFSET_MINUTES)
+    now = datetime.datetime.now()
+    return start_decreasing_time <= now < sunrise
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Capture image script with test mode.")
@@ -46,9 +59,9 @@ def load_camera_state():
     try:
         with open(camera_state_file, "r") as file:
             state = json.load(file)
-            return state["shutter_speed"], state["gain"], state.get("photo_counter", 0)
+            return state["shutter_speed"], max(1, state["gain"]), state.get("photo_counter", 0)
     except (FileNotFoundError, KeyError):
-        return DAYTIME_SHUTTER, DAYTIME_GAIN, 0
+        return DAYTIME_SHUTTER, max(1, DAYTIME_GAIN), 0
 
 def save_camera_state(shutter_speed, gain, photo_counter):
     script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -69,13 +82,8 @@ def is_start_of_night(sunset_time):
     now = datetime.datetime.now().time()
     return sunset < now and (datetime.datetime.combine(datetime.date.today(), now) - datetime.datetime.combine(datetime.date.today(), sunset)).seconds <= 300
 
-def compute_increments(shutter_speed, gain):
-    duration_in_minutes = 60  # Always 60 minutes for the transition
-    if shutter_speed > DAYTIME_SHUTTER:
-        shutter_increment = round((shutter_speed - DAYTIME_SHUTTER) / (duration_in_minutes / (50/60)))  # Decrement value, rounded to whole number
-    else:
-        shutter_increment = round((MAX_SHUTTER - DAYTIME_SHUTTER) / (duration_in_minutes / (50/60)))  # Increment value, rounded to whole number
-    return shutter_increment
+def compute_increments():
+    return (MAX_SHUTTER - DAYTIME_SHUTTER) // 60  # 60 minutes for the transition
 
 def print_camera_config(camera_config, shutter_speed, gain):
     table = PrettyTable()
@@ -86,6 +94,29 @@ def print_camera_config(camera_config, shutter_speed, gain):
         table.add_row([key, value])
 
     print(colored(table, 'green'))
+
+def is_after_sunset(sunset_time):
+    sunset = parser.parse(sunset_time)
+    now = datetime.datetime.now()
+    return now > sunset
+
+def should_reset_camera_state(sunset_time):
+    sunset = parser.parse(sunset_time)
+    now = datetime.datetime.now()
+    after_sunset_delta = now - sunset
+    return after_sunset_delta.total_seconds() <= 2 * 3600
+
+def is_transition_before_sunrise(sunrise_time):
+    sunrise = parser.parse(sunrise_time)
+    transition_start = sunrise + datetime.timedelta(minutes=SUNRISE_OFFSET_MINUTES)
+    now = datetime.datetime.now()
+    return transition_start <= now < sunrise
+
+def compute_shutter_increments():
+    return (MAX_SHUTTER - DAYTIME_SHUTTER) // 60  # 60 minutes for the transition
+
+def compute_gain_increments():
+    return (MAX_GAIN - DAYTIME_GAIN) // 60  # 60 minutes for the transition
 
 def capture_night_image(config, logging_enabled, shutter_speed, gain, test_mode=False):
     # Adjust camera settings for night time capturing
@@ -142,13 +173,6 @@ def capture_night_image(config, logging_enabled, shutter_speed, gain, test_mode=
 
         print(f"Saved file {file_name}")
 
-def is_one_hour_before_sunrise(sunrise_time):
-    sunrise_with_offset = parser.parse(sunrise_time) + datetime.timedelta(minutes=SUNRISE_OFFSET_MINUTES)
-    now = datetime.datetime.now()
-    delta = sunrise_with_offset - now
-    return 0 < delta.total_seconds() <= 3600  # Check if now is within one hour before adjusted sunrise
-
-
 if __name__ == "__main__":
     args = parse_arguments()
 
@@ -164,32 +188,38 @@ if __name__ == "__main__":
     if sunrise_time == "never_sets" or sunset_time == "never_sets":
         exit()
 
-    if is_start_of_night(sunset_time):
+    shutter_speed, gain, photo_counter = load_camera_state()
+
+    if should_reset_camera_state(sunset_time):
         shutter_speed = DAYTIME_SHUTTER
         gain = DAYTIME_GAIN
         photo_counter = 0
-    else:
-        shutter_speed, gain, photo_counter = load_camera_state()
 
-    duration_in_minutes = (parser.parse(sunrise_time) - datetime.datetime.now()).seconds // 60
-    shutter_increment = compute_increments(shutter_speed, gain)
+    if is_after_sunset(sunset_time):
+        print(f"Within transition period after sunset. Current shutter_speed: {shutter_speed}, gain: {gain}")
+        
+        shutter_speed += compute_shutter_increments()
+        gain += compute_gain_increments()
 
-    if is_one_hour_before_sunrise(sunrise_time):
-        shutter_speed -= shutter_increment
-        if shutter_speed < DAYTIME_SHUTTER:
-            shutter_speed = DAYTIME_SHUTTER
-
-        photo_counter += 1
-        if photo_counter % 9 == 0 and gain > 0:
-            gain -= 1
-    else:
-        shutter_speed += shutter_increment
         if shutter_speed > MAX_SHUTTER:
             shutter_speed = MAX_SHUTTER
 
-        photo_counter += 1
-        if photo_counter % 9 == 0 and gain < 8:
-            gain += 1
+        if gain > MAX_GAIN:
+            gain = MAX_GAIN
+
+    elif is_transition_before_sunrise(sunrise_time):  # Decrease settings before sunrise
+        print(f"Within transition period before sunrise. Current shutter_speed: {shutter_speed}, gain: {gain}")
+        
+        shutter_speed -= compute_shutter_increments()
+        gain -= compute_gain_increments()
+
+        if shutter_speed < DAYTIME_SHUTTER:
+            shutter_speed = DAYTIME_SHUTTER
+
+        if gain < 1:  # Ensure gain is at least 1
+            gain = 1
+                
+    print(f"After adjustment. New shutter_speed: {shutter_speed}, gain: {gain}")
 
     gain = int(gain)  # Convert to integer
     shutter_speed = int(shutter_speed)  # Convert to integer
