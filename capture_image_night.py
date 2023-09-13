@@ -16,8 +16,8 @@ import argparse
 # Constants
 DAYTIME_SHUTTER = 4489
 DAYTIME_GAIN = 1
-MAX_SHUTTER = 12000000
-MAX_GAIN = 8
+MAX_SHUTTER = 30000000
+MAX_GAIN = 32
 SUNRISE_OFFSET_MINUTES = -60  # Start transition 1 hour before actual sunrise
 SUNSET_OFFSET_MINUTES = -60
 
