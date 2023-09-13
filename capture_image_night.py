@@ -98,12 +98,6 @@ def is_after_sunset(sunset_time):
     now = datetime.datetime.now()
     return now > sunset
 
-def should_reset_camera_state(sunset_time):
-    sunset = parser.parse(sunset_time)
-    now = datetime.datetime.now()
-    after_sunset_delta = now - sunset
-    return after_sunset_delta.total_seconds() <= 2 * 3600
-
 def is_transition_before_sunrise(sunrise_time):
     sunrise = parser.parse(sunrise_time)
     transition_start = sunrise + datetime.timedelta(minutes=SUNRISE_OFFSET_MINUTES)
@@ -190,11 +184,6 @@ if __name__ == "__main__":
         exit()
 
     shutter_speed, gain, photo_counter, gain_increment_counter = load_camera_state()
-
-    if should_reset_camera_state(sunset_time):
-        shutter_speed = DAYTIME_SHUTTER
-        gain = DAYTIME_GAIN
-        photo_counter = 0
 
     if is_after_sunset(sunset_time):
         print(f"Within transition period after sunset. Current shutter_speed: {shutter_speed}, gain: {gain}")

@@ -73,3 +73,15 @@ with Picamera2() as camera:
         elif isinstance(value, dict):
             if 'SHOW_' + attribute.upper() in globals() and globals()['SHOW_' + attribute.upper()]:
                 print_table(attribute, value)
+
+#with Picamera2() as camera:
+#   attributes = [attr for attr in dir(camera) if not callable(getattr(camera, attr)) and not attr.startswith("__")]
+#   for attribute in attributes:
+#       print(attribute, ":", getattr(camera, attribute))
+
+with Picamera2() as camera:
+    current_exposure_time = camera.controls['ExposureTime'] if 'ExposureTime' in camera.controls else None
+    if current_exposure_time is not None:
+        print(f"Current ExposureTime: {current_exposure_time}")
+    else:
+        print("Couldn't find the current ExposureTime.")
