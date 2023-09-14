@@ -9,11 +9,36 @@ import libcamera
 import subprocess
 import logging
 from overlay import add_overlay  # import add_overlay function from overlay.py
+import json 
 
 # Load configuration from yaml file
 def load_config(config_path):
     with open(config_path, 'r') as config_file:
         return yaml.safe_load(config_file)
+
+
+DAYTIME_SHUTTER = 4489
+DAYTIME_GAIN = 1
+
+def reset_to_daytime_settings():
+    """Reset the camera settings to daytime values if they are not already."""
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    camera_state_file = os.path.join(script_dir, 'data', 'camera_state.json')
+
+    # Load existing state
+    try:
+        with open(camera_state_file, "r") as file:
+            state = json.load(file)
+    except FileNotFoundError:
+        state = {}
+
+    # Update only shutter_speed and gain to daytime values
+    state["shutter_speed"] = DAYTIME_SHUTTER
+    state["gain"] = DAYTIME_GAIN
+
+    # Save the updated state
+    with open(camera_state_file, "w") as file:
+        json.dump(state, file)
 
 # Enable or disable HDR based on config
 
@@ -87,4 +112,5 @@ def capture_image(config, logging_enabled):
 if __name__ == "__main__":
     config = load_config('/home/pi/raspberrypi-picamera-timelapse/config.yaml')
     logging_enabled = setup_logging(config)
+    reset_to_daytime_settings()
     capture_image(config, logging_enabled)
