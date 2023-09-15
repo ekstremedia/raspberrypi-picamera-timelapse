@@ -1,5 +1,5 @@
 # Main settings
-camera_name: 'Timelapse camera'
+camera_name: 'Timelapse TEST Camera'
 main_size: [3840, 2160]
 lores_size: [640, 480]
 display: 'main'
@@ -9,10 +9,25 @@ colour_gains: [2.1, 1.5]
 filename_prefix: 'timelapse_'
 interval: 50
 status_file: '/var/www/html/status.jpg'
+test_file: '/var/www/html/test.jpg'
 focus_mode: 'manual'
-lens_position: 0.0  #0.0 = infinity, 1 sharp, 10 unsharp
+lens_position: 1  #0.0 = infinity, 1 sharp, 10 unsharp
 hdr: true
 image_quality: 90
+
+# Camera constants
+camera_constants:
+  DAYTIME_SHUTTER: 4489
+  DAYTIME_GAIN: 1
+  MAX_SHUTTER: 40000000
+  MAX_GAIN: 32
+  SUNRISE_OFFSET_MINUTES: 60  # Start transition 1 hour after actual sunrise
+  SUNRISE_OFFSET_MINUTES: 120
+  POST_SUNSET_DELAY_MINUTES: 180
+
+# Overlay
+overlay:
+  enabled: True
 
 # Logging
 log_youtube_upload: true
@@ -22,9 +37,9 @@ log_overlay: true
 # Image output
 image_output:
   root_folder: '/var/www/html/images/'
+  test_folder: '/var/www/html/'
   folder_structure: '%Y/%m/%d/'
   filename_prefix: 'timelapse_'
-  test_folder: '/var/www/html/'
 
 # Timelapse output
 video_output:
@@ -39,7 +54,7 @@ video_output:
   constant_rate_factor: 23
 
 video_upload: 
-  enabled: true
+  enabled: false
   url: 'https://example.com/api/piVideo/store'
   api_key: ''
 
