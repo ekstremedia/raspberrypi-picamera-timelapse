@@ -6,10 +6,12 @@ Python3 scripts for capturing images using Raspberry Pi with [libcamera](https:/
 
 Be sure to read the [Picamera2 manual](https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf) and see [their github for indepth python usage](https://github.com/raspberrypi/picamera2).
 
+See live demo of my cameras at [https://ekstremedia.no/sortland/live](https://ekstremedia.no/sortland/live).
+
 ## Required modules
 
 Using the following python modules, see [requirements.txt](requirements.txt): 
-> requests pyyaml argparse colorlog Pillow opencv-python colored picamera2 tqdm psutil
+> requests pyyaml argparse colorlog Pillow opencv-python colored picamera2 tqdm psutil python-dateutil prettytable termcolor
 
 Install the required modules for python
 
@@ -18,13 +20,15 @@ Install the required modules for python
 ## Config
 Copy [example_config.yaml](example_config.yaml) to `config.yaml` and edit it to your specifications.
 
-## Image capture
+## Image captures
 
 [capture_image.py](capture_image.py) takes the photo and put on the overlay made in [overlay.py](overlay.py)
 
     python capture_image.py
 
-[timelapse.py](timelapse.py) will start the timelapse script that runs `capture_image.py` at the interval set in config.
+[timelapse.py](timelapse.py) will start the timelapse script that runs `capture_image.py` or ``capture_image_night.py` at the interval set in config. Which script is run is determined on the sunrise and sunset times defined in data/sun_data_2023.json. This file currently have the dates and times for my current position. In config.yaml, there are constants defined to help me pinpoint the correct times to run the night script and day script.
+
+The night script will also slowly increase shutter speed and gain over a 1 hour period, after sunset. This is to get the best possible image quality in low light conditions. It also will revert this process 1 hour before sunrise, to slowly drift into day mode. Then, the `capture_image.py` script will be run for the day period, which runs on more automatic settings.
 
     python timelapse.py
 Can be set in crontab to start at boot:
