@@ -229,6 +229,7 @@ def add_overlay(config, image_path):
     # Open the image and get its size
     img = Image.open(image_path)
     width, height = img.size
+    exif_data = img.info.get('exif', b'')
 
     # Create a new image with additional height for the overlay
     new_height = height + 80
@@ -267,9 +268,9 @@ def add_overlay(config, image_path):
 
     # # Save the new image and copy it to the status file location
     if not test_mode:
-        new_img.save(image_path)
+        new_img.save(image_path, exif=exif_data)
     else:
-        new_img.save("/var/www/html/overlay.jpg")
+        new_img.save("/var/www/html/overlay.jpg", exif=exif_data)
 
     # if not test_mode:
         
