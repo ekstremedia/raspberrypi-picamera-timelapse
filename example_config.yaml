@@ -22,7 +22,6 @@ camera_constants:
   MAX_SHUTTER: 40000000
   MAX_GAIN: 32
   SUNRISE_OFFSET_MINUTES: 60  # Start transition 1 hour after actual sunrise
-  SUNRISE_OFFSET_MINUTES: 120
   POST_SUNSET_DELAY_MINUTES: 180
 
 # Overlay
