@@ -40,9 +40,6 @@ def reset_to_daytime_settings():
     with open(camera_state_file, "w") as file:
         json.dump(state, file)
 
-# Enable or disable HDR based on config
-
-
 # Set up logging
 def setup_logging(config):
     if config.get('log_capture_image'):
@@ -55,7 +52,9 @@ def setup_logging(config):
         return False
 
 def capture_image(config, logging_enabled):
-# This must be done before Picamera2 is ran
+    # Enable or disable HDR based on config
+    # This must be done before Picamera2 is ran
+    # Only works with v3 cameras
     if config['hdr']:
         os.system("v4l2-ctl --set-ctrl wide_dynamic_range=1 -d /dev/v4l-subdev0")
     else:
@@ -65,7 +64,6 @@ def capture_image(config, logging_enabled):
         # Set focus mode and lens position based on config
         focus_mode = libcamera.controls.AfModeEnum.Manual if config['focus_mode'] == 'manual' else libcamera.controls.AfModeEnum.Auto
         lens_position = config['lens_position'] if config['focus_mode'] == 'manual' else None
-        
 
         camera_config = camera.create_still_configuration(
             main={"size": tuple(config['main_size'])},
