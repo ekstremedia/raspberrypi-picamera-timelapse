@@ -8,6 +8,8 @@ Be sure to read the [Picamera2 manual](https://datasheets.raspberrypi.com/camera
 
 See live demo of my cameras at [https://ekstremedia.no/sortland/live](https://ekstremedia.no/sortland/live).
 
+Weather sealed cases for these Raspberry's are bought from [Naturebytes](https://shop.naturebytes.org/).
+
 ## Required modules
 
 Using the following python modules, see [requirements.txt](requirements.txt): 
