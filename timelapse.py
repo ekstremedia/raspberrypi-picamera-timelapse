@@ -7,6 +7,20 @@ from datetime import datetime, timedelta
 import json
 import os
 
+def lerp(x, x_min, x_max, y_min, y_max):
+    return y_min + (x - x_min) / (x_max - x_min) * (y_max - y_min)
+
+def get_shutter_speed_from_state():
+    """Load the shutter speed from camera_state.json."""
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    camera_state_file = os.path.join(script_dir, 'data', 'camera_state.json')
+    try:
+        with open(camera_state_file, "r") as file:
+            state = json.load(file)
+            return state["shutter_speed"]
+    except (FileNotFoundError, KeyError):
+        return None
+
 def load_config(config_path):
     """Load configuration from a YAML file."""
     with open(config_path, 'r') as config_file:
@@ -63,7 +77,21 @@ def timelapse(config):
             # Daytime
             subprocess.run(['python3', os.path.join(current_dir, 'capture_image.py')])
 
-        time.sleep(interval)
+        shutter_speed = get_shutter_speed_from_state()
+
+        if shutter_speed:
+            DAYTIME_SHUTTER = config['camera_constants']['DAYTIME_SHUTTER']
+            MAX_SHUTTER = config['camera_constants']['MAX_SHUTTER']
+            SLEEP_INTERVAL_MIN = config['interval']
+            SLEEP_INTERVAL_MAX = 0
+            current_interval = lerp(shutter_speed, DAYTIME_SHUTTER, MAX_SHUTTER, SLEEP_INTERVAL_MIN, SLEEP_INTERVAL_MAX)
+            time.sleep(current_interval)
+        else:
+            current_interval = config['interval']
+            time.sleep(config['interval'])
+
+        print(f"Current interval {current_interval}")
+
 
 if __name__ == "__main__":
     config_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'config.yaml')
