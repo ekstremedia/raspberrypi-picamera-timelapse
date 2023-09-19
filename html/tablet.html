@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +20,10 @@
             var timeLeft = 60;
 
             countdownTimer = setInterval(function () {
-                countdownElement.innerText = 'Laster nytt bilde om ' + timeLeft + ' sekunder';
                 timeLeft -= 1;
 
                 if (timeLeft < 0) {
                     clearInterval(countdownTimer);
-                    countdownElement.innerText = 'Laster nytt bilde...';
                     reloadImage();
                     startCountdown();
                 }
@@ -35,13 +34,13 @@
             startCountdown();
         }
     </script>
-</head><body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-purple-800">
-    <div class="text-center flex-grow">
-        <!-- Image center and scale using Tailwind CSS -->
-        <div class="flex items-center justify-center h-4/5 mt-5 px-5 mx-auto max-w-6xl">
-            <img id="statusImage" src="status.jpg" alt="Status" class="max-w-full max-h-full object-cover rounded-lg shadow-md">
-        </div>
-        <div id="countdown" class="mt-5 text-blue-100"></div>
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-900 to-purple-800">
+    <!-- Image center and scale using Tailwind CSS -->
+    <div class="w-full h-full flex items-center justify-center">
+        <img id="statusImage" src="status.jpg" alt="Status" class="w-full h-full object-cover rounded-lg shadow-md">
     </div>
 </body>
+
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kringelen Cam</title>
+    <!-- Import Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function reloadImage() {
+            const imageUrl = "status.jpg";
+            const imageElement = document.getElementById('statusImage');
+            imageElement.src = imageUrl + "?t=" + new Date().getTime();
+        }
+
+        function startCountdown() {
+            var countdownTimer;
+            var countdownElement = document.getElementById('countdown');
+            var timeLeft = 60;
+
+            countdownTimer = setInterval(function () {
+                timeLeft -= 1;
+
+                if (timeLeft < 0) {
+                    clearInterval(countdownTimer);
+                    reloadImage();
+                    startCountdown();
+                }
+            }, 1000);
+        }
+
+        window.onload = function() {
+            startCountdown();
+        }
+    </script>
+</head><body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-purple-800">
+    <div class="text-center flex-grow">
+        <!-- Image center and scale using Tailwind CSS -->
+        <div class="flex items-center justify-center h-4/5 mt-5 px-5 mx-auto max-w-6xl">
+            <img id="statusImage" src="status.jpg" alt="Status" class="max-w-full max-h-full object-cover rounded-lg shadow-md">
+        </div>
+    </div>
+</body>
+</html>
