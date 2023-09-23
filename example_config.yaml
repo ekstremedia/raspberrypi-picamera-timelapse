@@ -6,7 +6,7 @@ display: 'main'
 awb_enable: False
 awb_mode: 'Daylight'
 colour_gains: [2.1, 1.5]
-colour_gains_night: [1.1, 3.5]
+colour_gains_night: [1.4, 3.1]
 filename_prefix: 'timelapse_'
 interval: 50
 status_file: '/var/www/html/status.jpg'

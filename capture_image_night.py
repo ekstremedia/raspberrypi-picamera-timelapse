@@ -96,6 +96,8 @@ def save_camera_state(shutter_speed, gain, photo_counter, gain_increment_counter
 
 def capture_night_image(config, logging_enabled, shutter_speed, gain, test_mode=False):
     """Capture an image with night settings."""
+    # disable hdr
+    os.system("v4l2-ctl --set-ctrl wide_dynamic_range=0 -d /dev/v4l-subdev0")
     with Picamera2() as camera:
         # Set focus mode and lens position based on config
         focus_mode = libcamera.controls.AfModeEnum.Manual if config['focus_mode'] == 'manual' else libcamera.controls.AfModeEnum.Auto
