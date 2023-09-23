@@ -111,7 +111,7 @@ def capture_night_image(config, logging_enabled, shutter_speed, gain, test_mode=
                 "AwbMode": getattr(libcamera.controls.AwbModeEnum, config['awb_mode']),
                 "AfMode": focus_mode,
                 "LensPosition": lens_position,
-                "ColourGains": tuple(config['colour_gains']),
+                "ColourGains": tuple(config['colour_gains_night']),
                 "ExposureTime": int(shutter_speed),
                 "AnalogueGain": round(gain)
             }
