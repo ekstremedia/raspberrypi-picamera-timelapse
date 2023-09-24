@@ -15,6 +15,8 @@ focus_mode: 'manual'
 lens_position: 1  #0.0 = infinity, 1 sharp, 10 unsharp
 hdr: true
 image_quality: 90
+crop_image: False
+crop_size: [3674, 2066]
 
 # Camera constants
 camera_constants:

@@ -217,11 +217,45 @@ def draw_pi_info(draw):
         # Draw the data on the image
         draw.text((temp_x, temp_y),topStr, font=data_font, fill=(220, 220, 255))    
         draw.text((temp_x, space_y),secondStr, font=data_font, fill=(220, 220, 255))    
-    
+
+def crop_and_resize_image(file_path, crop_dimensions, new_size):
+    """
+    Crop and resize the image.
+
+    :param file_path: Path to the image file.
+    :param crop_dimensions: Tuple of (left, top, right, bottom) defining the cropping box.
+    :param new_size: Tuple of (width, height) defining the new size of the image.
+    """
+    with Image.open(file_path) as img:
+        # Crop the image
+        cropped_img = img.crop(crop_dimensions)
+        
+        # Resize the image
+        resized_img = cropped_img.resize(new_size)
+        
+        # Save the modified image back to the original file path
+        resized_img.save(file_path)    
+        print("Cropping image")
 
 def add_overlay(config, image_path):
 
     print("Add_overlay started")
+
+    # Check if cropping is enabled and the necessary dimensions are available in the configuration
+    if config.get('crop_image', False) and 'main_size' in config and 'crop_size' in config:
+        # Retrieve the main size and crop size from the configuration
+        main_size = tuple(config['main_size'])
+        crop_size = tuple(config['crop_size'])
+        
+        # Calculate the cropping dimensions (left, top, right, bottom)
+        left = 0
+        top = 0
+        right = crop_size[0]
+        bottom = crop_size[1]
+        crop_dimensions = (left, top, right, bottom)
+        
+        # Crop and resize the image
+        crop_and_resize_image(image_path, crop_dimensions, main_size)
 
     test_mode = False
     # if test_mode == True:
