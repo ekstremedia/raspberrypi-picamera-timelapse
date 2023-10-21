@@ -53,7 +53,7 @@ def create_thumbnail(image_file, resize=False):
             img.save(thumbnail_file, "JPEG")
         else:
             thumbnail_file = os.path.join(thumbnail_folder, 'image.jpg')
-            img.save(thumbnail_file, "JPEG", quality=60)
+            img.save(thumbnail_file, "JPEG", quality=80)
         
     return thumbnail_file
 
@@ -76,10 +76,12 @@ def main(file, date, thumbnail):
 
     # If thumbnail not provided, select a random image file from the middle of the image directory
     if not thumbnail:
+        
         middle_image = image_files[len(image_files) // 2]
 
         thumbnail = create_thumbnail(middle_image, resize=True)
         regular_image = create_thumbnail(middle_image)
+        print(f"if not thumbnail: regular_image {regular_image}")
 
         # Update the files dictionary with the correct middle image file
         files = {
@@ -88,6 +90,7 @@ def main(file, date, thumbnail):
             'image': open(regular_image, 'rb')
         }
     else:
+        print(f"Only the video and thumbnail files are provided.regular_image: {regular_image}")
         # Only the video and thumbnail files are provided
         files = {
             'video': open(file, 'rb'),

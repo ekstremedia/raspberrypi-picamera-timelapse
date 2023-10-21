@@ -40,18 +40,18 @@ def create_timelapse(config, date=None, upload=True, debug=False, only_upload=Fa
 
     video_path = os.path.join(video_folder, video_filename)
 
+    # Get the image folder path for the specified date
+    image_folder = os.path.join(config['image_output']['root_folder'], specified_date.strftime(config['image_output']['folder_structure']))
+
+    # Check if the image folder exists
+    if not os.path.exists(image_folder):
+        log_message(f"No images found for {specified_date_str}")
+        return
+
+    # Create the timelapse video folder if it doesn't exist
+    os.makedirs(video_folder, exist_ok=True)
+
     if not only_upload:
-        # Get the image folder path for the specified date
-        image_folder = os.path.join(config['image_output']['root_folder'], specified_date.strftime(config['image_output']['folder_structure']))
-
-        # Check if the image folder exists
-        if not os.path.exists(image_folder):
-            log_message(f"No images found for {specified_date_str}")
-            return
-
-        # Create the timelapse video folder if it doesn't exist
-        os.makedirs(video_folder, exist_ok=True)
-        
         ff_script.ffmpeg_command(image_folder, video_path, config)
 
     # Upload file
