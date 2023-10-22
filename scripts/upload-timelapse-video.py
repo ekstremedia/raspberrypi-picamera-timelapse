@@ -4,6 +4,7 @@ import argparse
 import os
 import yaml
 import logging
+import datetime
 from colorlog import ColoredFormatter
 import glob
 from PIL import Image
@@ -121,6 +122,18 @@ def main(file, date, thumbnail):
         'Authorization': f'Bearer {config["video_upload"]["api_key"]}',
     }
 
+    # Get the list of all image files from the directory
+    all_images = [f for f in os.listdir(image_output_path) if os.path.isfile(os.path.join(image_output_path, f))]
+
+    # Filter out images that were taken around 22:00
+    images_around_2200 = [img for img in all_images if "_22_00_" in img]
+
+    # Select the first image from the filtered list (if available)
+    night_image_path = os.path.join(image_output_path, images_around_2200[0]) if images_around_2200 else None
+
+    if night_image_path:
+        files['night_image'] = open(night_image_path, 'rb')
+        print(f"night_image_path {night_image_path}")
     # Send POST request to the server
     response = requests.post(config['video_upload']['url'], files=files, data=data, headers=headers)
 

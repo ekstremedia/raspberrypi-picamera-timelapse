@@ -51,14 +51,8 @@ def create_timelapse(config, date=None, upload=True, debug=False, only_upload=Fa
     # Create the timelapse video folder if it doesn't exist
     os.makedirs(video_folder, exist_ok=True)
 
-    # Identify the starting and ending images
-    start_time_str = specified_date.strftime('_%Y_%m_%d_05_00_00')
-    end_time_str = (specified_date + datetime.timedelta(days=1)).strftime('_%Y_%m_%d_05_00_00')
-    start_image, end_image, selected_images = get_image_range_for_period(image_folder, start_time_str, end_time_str)
-    
-
     if not only_upload:
-       ff_script.ffmpeg_command(image_folder, video_path, config, selected_images)
+        ff_script.ffmpeg_command(image_folder, video_path, config)
 
     # Upload file
     if upload and config.get('video_upload', {}).get('enabled', False):
@@ -66,61 +60,6 @@ def create_timelapse(config, date=None, upload=True, debug=False, only_upload=Fa
         date_arg = specified_date.strftime('%Y-%m-%d')  # Format the date as 'YYYY-MM-DD'
         upload_command = ['python', upload_script, '--file', video_path, '--date', date_arg]
         subprocess.run(upload_command, check=True)
-
-import os
-
-def get_images_from_folder(folder, start_time=None, end_time=None):
-    images = sorted([img for img in os.listdir(folder) if img.endswith('.jpg')],
-                    key=lambda x: os.path.getctime(os.path.join(folder, x)))
-
-    if start_time is None and end_time is None:
-        return images
-
-    selected_images = []
-
-    for img in images:
-        img_path = os.path.join(folder, img)
-        img_date_str = datetime.datetime.fromtimestamp(os.path.getctime(img_path)).strftime('%Y_%m_%d_%H_%M_%S')
-        img_datetime = datetime.datetime.strptime(img_date_str, '%Y_%m_%d_%H_%M_%S')
-
-        if start_time and img_datetime < start_time:
-            continue
-
-        if end_time and img_datetime > end_time:
-            continue
-
-        selected_images.append(img)
-
-    return selected_images
-
-# ...
-
-# ...
-
-def get_image_range_for_period(image_folder, start_time_str, end_time_str):
-    start_datetime = datetime.datetime.strptime(start_time_str, '_%Y_%m_%d_%H_%M_%S')
-    end_datetime = datetime.datetime.strptime(end_time_str, '_%Y_%m_%d_%H_%M_%S')
-
-    # Get images from the first day (05:00 to midnight)
-    first_day_images = get_images_from_folder(image_folder, start_time=start_datetime)
-
-    # Calculate the next day date and its folder
-    next_day_date = (datetime.datetime.strptime(start_time_str, '_%Y_%m_%d_%H_%M_%S').date() + datetime.timedelta(days=1))
-    next_day_folder = os.path.join(config['image_output']['root_folder'], next_day_date.strftime('%Y/%m/%d'))
-
-    # Get images from the next day (midnight to 05:00)
-    second_day_images = []
-    if os.path.exists(next_day_folder):
-        second_day_images = get_images_from_folder(next_day_folder, end_time=end_datetime)
-
-    # Combine lists
-    all_images = first_day_images + second_day_images
-
-    if not all_images:
-        return None, None, []
-
-    return all_images[0], all_images[-1], all_images
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create a timelapse video.')
