@@ -16,6 +16,4 @@ cache/netatmo.json
 .vscode/
 old/
 data/camera_state.json
-data/camera_state.json
-data/camera_state.json
 data/ffmpeg_list.txt
