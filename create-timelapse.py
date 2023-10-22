@@ -93,10 +93,6 @@ def get_images_from_folder(folder, start_time=None, end_time=None):
 
     return selected_images
 
-# ...
-
-# ...
-
 def get_image_range_for_period(image_folder, start_time_str, end_time_str):
     start_datetime = datetime.datetime.strptime(start_time_str, '_%Y_%m_%d_%H_%M_%S')
     end_datetime = datetime.datetime.strptime(end_time_str, '_%Y_%m_%d_%H_%M_%S')
@@ -108,10 +104,17 @@ def get_image_range_for_period(image_folder, start_time_str, end_time_str):
     next_day_date = (datetime.datetime.strptime(start_time_str, '_%Y_%m_%d_%H_%M_%S').date() + datetime.timedelta(days=1))
     next_day_folder = os.path.join(config['image_output']['root_folder'], next_day_date.strftime('%Y/%m/%d'))
 
-    # Get images from the next day (midnight to 05:00)
-    second_day_images = []
-    if os.path.exists(next_day_folder):
-        second_day_images = get_images_from_folder(next_day_folder, end_time=end_datetime)
+    # If the next_day_folder doesn't exist, create it
+    if not os.path.exists(next_day_folder):
+        os.makedirs(next_day_folder, exist_ok=True)
+
+    # For every image after midnight, move them to the next_day_folder
+    for img in os.listdir(image_folder):
+        if img.startswith(next_day_date.strftime('%Y_%m_%d')):
+            os.rename(os.path.join(image_folder, img), os.path.join(next_day_folder, img))
+
+    # Now, get images from the next day (midnight to 05:00)
+    second_day_images = get_images_from_folder(next_day_folder, end_time=end_datetime)
 
     # Combine lists
     all_images = first_day_images + second_day_images
@@ -120,6 +123,7 @@ def get_image_range_for_period(image_folder, start_time_str, end_time_str):
         return None, None, []
 
     return all_images[0], all_images[-1], all_images
+
 
 
 if __name__ == "__main__":

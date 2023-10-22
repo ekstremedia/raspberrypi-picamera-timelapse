@@ -11,13 +11,16 @@ def format_duration(duration):
     seconds = int(duration % 60)
     return f"{minutes} minutes, {seconds} seconds"
 
-
 def ffmpeg_command(image_folder, video_path, config, image_files):
     # Generate the list of image files for FFmpeg
     list_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'data', 'ffmpeg_list.txt')
+    
     with open(list_path, 'w') as f:
         for image_file in image_files:
-            f.write(f"file '{os.path.join(image_folder, image_file)}'\n")
+            # Determine the correct folder for each image based on its filename
+            date_part = image_file.split('_')[1:4]
+            correct_folder = os.path.join(config['image_output']['root_folder'], *date_part)
+            f.write(f"file '{os.path.join(correct_folder, image_file)}'\n")
 
     ffmpeg_settings = [
         ('-y', None),  # Overwrite the output file without asking for confirmation
