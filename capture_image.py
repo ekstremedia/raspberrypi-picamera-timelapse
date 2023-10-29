@@ -87,7 +87,7 @@ def capture_image(config, logging_enabled):
             logging.info(f"Camera config: {camera_config}")
 
         camera.start()
-        time.sleep(5)  # Allow the camera to adjust
+        time.sleep(2)  # Allow the camera to adjust
 
         now = datetime.now()
         dir_name = os.path.join(config['image_output']['root_folder'], now.strftime(config['image_output']['folder_structure']))
