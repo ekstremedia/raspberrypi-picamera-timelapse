@@ -82,9 +82,10 @@ def timelapse(config):
         if shutter_speed:
             DAYTIME_SHUTTER = config['camera_constants']['DAYTIME_SHUTTER']
             MAX_SHUTTER = config['camera_constants']['MAX_SHUTTER']
-            SLEEP_INTERVAL_MIN = config['interval']
+            SLEEP_INTERVAL_MIN = interval 
             SLEEP_INTERVAL_MAX = 0
-            current_interval = lerp(shutter_speed, DAYTIME_SHUTTER, MAX_SHUTTER, SLEEP_INTERVAL_MIN, SLEEP_INTERVAL_MAX)
+            #current_interval = lerp(shutter_speed, DAYTIME_SHUTTER, MAX_SHUTTER, SLEEP_INTERVAL_MIN, SLEEP_INTERVAL_MAX)
+            current_interval = interval
             time.sleep(current_interval)
         else:
             current_interval = config['interval']
