@@ -42,8 +42,8 @@ def send_request(config, endpoint, payload=None):
     return None
 
 def reboot_system():
-    # os.system('sudo reboot')
     logger.log_message("Rebooting")  # Use your custom logger for logging
+    os.system('sudo reboot')
 
 def main():
     logger.log_message("Starting server request script")
