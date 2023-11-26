@@ -124,13 +124,12 @@ def main(file, date, thumbnail):
 
     # Get the list of all image files from the directory
     all_images = [f for f in os.listdir(image_output_path) if os.path.isfile(os.path.join(image_output_path, f))]
+    # Sort the list of images
+    sorted_images = sorted(all_images)
 
-    # Filter out images that were taken around 22:00
-    images_around_2200 = [img for img in all_images if "_22_00_" in img]
-
-    # Select the first image from the filtered list (if available)
-    night_image_path = os.path.join(image_output_path, images_around_2200[0]) if images_around_2200 else None
-
+    # Select the last image file as the 'night image'
+    night_image_path = os.path.join(image_output_path, sorted_images[-1]) if sorted_images else None
+    
     if night_image_path:
         files['night_image'] = open(night_image_path, 'rb')
         print(f"night_image_path {night_image_path}")

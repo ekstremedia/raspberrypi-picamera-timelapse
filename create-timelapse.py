@@ -69,8 +69,10 @@ def create_timelapse(config, date=None, upload=True, debug=False, only_upload=Fa
 
 import os
 
-def get_images_from_folder(folder, start_time=None, end_time=None):
-    images = sorted([img for img in os.listdir(folder) if img.endswith('.jpg')],
+def get_images_from_folder(folder, start_time=None, end_time=None, min_size_kb=196):
+    min_size_bytes = min_size_kb * 1024  # Convert KB to bytes
+
+    images = sorted([img for img in os.listdir(folder) if img.endswith('.jpg') and os.path.getsize(os.path.join(folder, img)) > min_size_bytes],
                     key=lambda x: os.path.getctime(os.path.join(folder, x)))
 
     if start_time is None and end_time is None:
