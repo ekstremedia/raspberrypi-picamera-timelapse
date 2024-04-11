@@ -62,20 +62,20 @@ def timelapse(config):
     
     while True:
         today = datetime.now().date()
-        sunrise_time, sunset_time = get_sun_times(today, sun_data)
+        #sunrise_time, sunset_time = get_sun_times(today, sun_data)
         
-        if sunrise_time == "never_sets" or sunset_time == "never_sets":
-            # Places where the sun doesn't set or rise
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image.py')])
-        elif is_within_transition_period(sunrise_time, sunset_time, config):
-            # Transition periods (around sunrise and sunset)
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image_night.py')])
-        elif is_nighttime(sunrise_time, sunset_time, config):
-            # Nighttime
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image_night.py')])
-        else:
+        #if sunrise_time == "never_sets" or sunset_time == "never_sets":
+        #    # Places where the sun doesn't set or rise
+        #    subprocess.run(['python3', os.path.join(current_dir, 'capture_image.py')])
+        #elif is_within_transition_period(sunrise_time, sunset_time, config):
+        #    # Transition periods (around sunrise and sunset)
+        #    subprocess.run(['python3', os.path.join(current_dir, 'capture_image_night.py')])
+        #elif is_nighttime(sunrise_time, sunset_time, config):
+        #    # Nighttime
+        #    subprocess.run(['python3', os.path.join(current_dir, 'capture_image_night.py')])
+        #else:
             # Daytime
-            subprocess.run(['python3', os.path.join(current_dir, 'capture_image.py')])
+        subprocess.run(['python3', os.path.join(current_dir, 'capture_image.py')])
 
         shutter_speed = get_shutter_speed_from_state()
 
