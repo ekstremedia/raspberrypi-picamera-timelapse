@@ -56,7 +56,9 @@ try:
                 logging.info(f"Timelapse for {current_date} already exists.")
             else:
                 logging.info(f"Timelapse for {current_date} does not exist. Creating timelapse.")
-                subprocess.run(['python3', os.path.join(project_root_dir, 'createTimelapse.py'), '--date=' + current_date, '--only-upload'])
+                command = ['python3', os.path.join(project_root_dir, 'createTimelapse.py'), '--date=' + current_date, '--only-upload']
+                logging.info(f"Running command: {' '.join(command)}")
+                subprocess.run(command)
         except ValueError:
             logging.error("Response content is not valid JSON")
     else:
