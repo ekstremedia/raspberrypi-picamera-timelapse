@@ -4,7 +4,7 @@ import subprocess
 import yaml
 import os
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Dynamically find the project root directory
 project_root_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
@@ -36,7 +36,7 @@ if log_check_upload:
 remote_url = config['remote']['url']
 
 # Get today's date in the required format
-current_date = datetime.now().strftime('%Y-%m-%d')
+current_date = (datetime.now() - timedelta(1)).strftime('%Y-%m-%d')
 
 # Define the endpoint URL
 endpoint_url = f"{remote_url}/api/checkUploads?date={current_date}&camera_id={camera_id}"
