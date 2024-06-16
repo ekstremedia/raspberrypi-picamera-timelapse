@@ -15,7 +15,7 @@ os.makedirs(log_dir, exist_ok=True)
 log_file = os.path.join(log_dir, 'checkUpload.log')
 
 logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logging.info(f"Logging to {log_file}")
+#logging.info(f"Logging to {log_file}")
 
 # Load configuration
 config_path = os.path.join(project_root_dir, 'config.yaml')
@@ -29,8 +29,8 @@ log_check_upload = config.get('log_check_upload', False)
 camera_id = config['camera_id']
 
 # Log configuration status
-if log_check_upload:
-    logging.info('Logging is enabled as per config.yaml')
+#if log_check_upload:
+#    logging.info('Logging is enabled as per config.yaml')
 
 # Get the remote URL from the config file
 remote_url = config['remote']['url']
@@ -43,7 +43,7 @@ endpoint_url = f"{remote_url}/api/checkUploads?date={current_date}&camera_id={ca
 
 try:
     # Log the request being sent
-    logging.info(f"Sending request to {endpoint_url}")
+#    logging.info(f"Sending request to {endpoint_url}")
 
     # Send request to the server
     response = requests.get(endpoint_url)
