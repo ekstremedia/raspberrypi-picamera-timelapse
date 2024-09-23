@@ -17,10 +17,20 @@ def ffmpeg_command(image_folder, video_path, config, image_files):
     
     with open(list_path, 'w') as f:
         for image_file in image_files:
-            # Determine the correct folder for each image based on its filename
-            date_part = image_file.split('_')[1:4]
-            correct_folder = os.path.join(config['image_output']['root_folder'], *date_part)
+            # Extract date part from filename by splitting on underscores
+            filename_parts = image_file.split('_')
+            
+            # Ensure we have enough parts and the expected format
+            if len(filename_parts) >= 6:
+                date_part = filename_parts[2:5]  # ['2024', '09', '23'] expected for the date
+                correct_folder = os.path.join(config['image_output']['root_folder'], *date_part)
+            else:
+                # Handle cases where filename does not match the expected format
+                log_message(f"Invalid filename format: {image_file}")
+                continue
+            
             f.write(f"file '{os.path.join(correct_folder, image_file)}'\n")
+
     # Use 'h264_v4l2m2m' if specified in the config, otherwise default to 'libx264'
     codec = config['video_output'].get('codec', 'libx264') or 'libx264'
 
