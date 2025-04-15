@@ -1,46 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kringelen Cam</title>
     <!-- Import Tailwind CSS from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <script>
-        function reloadImage() {
-            const imageUrl = "status.jpg";
-            const imageElement = document.getElementById('statusImage');
-            imageElement.src = imageUrl + "?t=" + new Date().getTime();
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
         }
 
-        function startCountdown() {
-            var countdownTimer;
-            var countdownElement = document.getElementById('countdown');
-            var timeLeft = 20;
-
-            countdownTimer = setInterval(function () {
-                timeLeft -= 1;
-
-                if (timeLeft < 0) {
-                    clearInterval(countdownTimer);
-                    reloadImage();
-                    startCountdown();
-                }
-            }, 1000);
+        /* Container to hold the slideshow */
+        .slideshow-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
         }
 
-        window.onload = function() {
-            startCountdown();
+        /* Images are absolutely positioned to overlap */
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+            will-change: opacity, transform;
+            transform: scale(1.05);
         }
-    </script>
+
+        /* Active image */
+        .active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+
+        /* Loading indicator */
+        .loading-indicator {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .loading-indicator.visible {
+            opacity: 1;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Optimize for tablet display */
+        @media screen and (min-width: 768px) and (max-width: 1280px) {
+            .slideshow-container {
+                max-width: 100%;
+                max-height: 100vh;
+            }
+        }
+    </style>
 </head>
-
 <body class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-900 to-purple-800">
-    <!-- Image center and scale using Tailwind CSS -->
-    <div class="w-full h-full flex items-center justify-center">
-        <img id="statusImage" src="status.jpg" alt="Status" class="w-full h-full object-cover rounded-lg shadow-md">
-    </div>
-</body>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+    <div class="loading-indicator" id="loadingIndicator"></div>
+    <!-- Images will be dynamically added here -->
+</div>
 
+<script>
+    // Array of image sources to cycle through
+    const sources = [
+        "http://192.168.1.113/status.jpg",
+        "http://192.168.1.109/status.jpg",
+        "https://ekstremedia.no/storage/live-images/spjutvika-cropped.jpg"
+    ];
+
+    // Configuration
+    const config = {
+        interval: 120000,           // Time between slides (ms)
+        transitionDuration: 2000, // Duration of transition (ms)
+        preloadNext: true,        // Preload the next image
+        maxRetries: 3,            // Maximum number of retries for failed loads
+        retryDelay: 1000          // Delay between retries (ms)
+    };
+
+    // Variables
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let imageElements = [];
+    let loadingIndicator;
+    let slideInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Initialize the slideshow
+    window.onload = function() {
+        const container = document.querySelector('.slideshow-container');
+        loadingIndicator = document.getElementById('loadingIndicator');
+
+        // Create image elements for each source
+        sources.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.className = 'slideshow-image';
+            img.alt = `Camera view ${index + 1}`;
+            img.dataset.index = index;
+
+            // First image is active
+            if (index === 0) {
+                img.classList.add('active');
+            }
+
+            container.appendChild(img);
+            imageElements.push(img);
+        });
+
+        // Load the first image and preload the next
+        loadImage(0).then(() => {
+            if (config.preloadNext) {
+                const nextIndex = (currentIndex + 1) % sources.length;
+                preloadImage(nextIndex);
+            }
+        });
+
+        // Start the slideshow
+        startSlideshow();
+
+        // Add touch event listeners for manual navigation
+        container.addEventListener('touchstart', handleTouchStart, false);
+        container.addEventListener('touchend', handleTouchEnd, false);
+    };
+
+    // Load an image by index
+    function loadImage(index, retryCount = 0) {
+        return new Promise((resolve, reject) => {
+            showLoading(true);
+
+            const img = imageElements[index];
+            const timestamp = new Date().getTime();
+            const src = sources[index] + "?t=" + timestamp;
+
+            // Create a new image object to preload
+            const loader = new Image();
+
+            loader.onload = function() {
+                img.src = src;
+                showLoading(false);
+                resolve();
+            };
+
+            loader.onerror = function() {
+                console.warn(`Failed to load image ${index}:`, src);
+                if (retryCount < config.maxRetries) {
+                    setTimeout(() => {
+                        loadImage(index, retryCount + 1).then(resolve).catch(reject);
+                    }, config.retryDelay);
+                } else {
+                    console.error(`Failed to load image ${index} after ${config.maxRetries} retries`);
+                    showLoading(false);
+                    resolve(); // Resolve anyway to continue slideshow
+                }
+            };
+
+            loader.src = src;
+        });
+    }
+
+    // Preload the next image
+    function preloadImage(index) {
+        const timestamp = new Date().getTime();
+        const src = sources[index] + "?t=" + timestamp;
+        const loader = new Image();
+        loader.src = src;
+    }
+
+    // Show or hide loading indicator
+    function showLoading(isLoading) {
+        if (isLoading) {
+            loadingIndicator.classList.add('visible');
+        } else {
+            loadingIndicator.classList.remove('visible');
+        }
+    }
+
+    // Start the slideshow interval
+    function startSlideshow() {
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, config.interval);
+    }
+
+    // Move to the next slide
+    function nextSlide() {
+        if (isTransitioning) return;
+
+        const nextIndex = (currentIndex + 1) % sources.length;
+        transitionToSlide(nextIndex);
+    }
+
+    // Move to the previous slide
+    function prevSlide() {
+        if (isTransitioning) return;
+
+        const prevIndex = (currentIndex - 1 + sources.length) % sources.length;
+        transitionToSlide(prevIndex);
+    }
+
+    // Transition to a specific slide
+    function transitionToSlide(targetIndex) {
+        if (targetIndex === currentIndex || isTransitioning) return;
+
+        isTransitioning = true;
+
+        // Load the target image
+        loadImage(targetIndex).then(() => {
+            // Update active classes
+            imageElements[currentIndex].classList.remove('active');
+            imageElements[targetIndex].classList.add('active');
+
+            // Update current index
+            currentIndex = targetIndex;
+
+            // Preload the next image
+            if (config.preloadNext) {
+                const nextIndex = (currentIndex + 1) % sources.length;
+                preloadImage(nextIndex);
+            }
+
+            // Reset the transition lock after animation completes
+            setTimeout(() => {
+                isTransitioning = false;
+            }, config.transitionDuration);
+
+            // Reset the interval timer
+            startSlideshow();
+        });
+    }
+
+    // Touch event handlers for swipe navigation
+    function handleTouchStart(evt) {
+        touchStartX = evt.touches[0].clientX;
+    }
+
+    function handleTouchEnd(evt) {
+        touchEndX = evt.changedTouches[0].clientX;
+        handleSwipe();
+    }
+
+    function handleSwipe() {
+        const threshold = 75; // Minimum distance for a swipe
+
+        if (touchEndX - touchStartX > threshold) {
+            // Swipe right -> go to previous slide
+            prevSlide();
+        } else if (touchStartX - touchEndX > threshold) {
+            // Swipe left -> go to next slide
+            nextSlide();
+        }
+    }
+
+    // Error handling for network connection issues
+    window.addEventListener('online', function() {
+        console.log('Network connection restored');
+        startSlideshow();
+    });
+
+    window.addEventListener('offline', function() {
+        console.log('Network connection lost');
+        if (slideInterval) clearInterval(slideInterval);
+    });
+
+    // Pause slideshow when tab is not visible
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            if (slideInterval) clearInterval(slideInterval);
+        } else {
+            startSlideshow();
+        }
+    });
+</script>
+</body>
 </html>
