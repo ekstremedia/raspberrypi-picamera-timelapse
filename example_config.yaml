@@ -54,6 +54,7 @@ video_output:
   bitrate: 5000000
   video_format: mp4
   constant_rate_factor: 23
+  codec: libx264 # or use h264_v4l2m2m for 1080p hardware encoding
 
 video_upload: 
   enabled: false
