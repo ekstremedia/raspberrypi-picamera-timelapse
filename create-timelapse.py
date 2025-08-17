@@ -4,13 +4,74 @@ import subprocess
 import datetime
 import yaml
 import argparse
+import re
 from colored import fg, attr
 from scripts import ffmpeg as ff_script
 from scripts.logger import log_message
 
+FILENAME_TS_RE = re.compile(r'(\d{4})_(\d{2})_(\d{2})_(\d{2})_(\d{2})_(\d{2})')
+
 def load_config(config_path):
     with open(config_path, 'r') as config_file:
         return yaml.safe_load(config_file)
+
+def parse_dt_from_filename(name):
+    m = FILENAME_TS_RE.search(name)
+    if not m:
+        return None
+    y, mo, d, H, M, S = map(int, m.groups())
+    return datetime.datetime(y, mo, d, H, M, S)
+
+
+def collect_images_in_window(folder, start_dt, end_dt, min_size_kb=30, prefix=None):
+    if not os.path.isdir(folder):
+        return []
+    min_bytes = min_size_kb * 1024
+    out = []
+    for name in os.listdir(folder):
+        if not name.lower().endswith('.jpg'):
+            continue
+        if prefix and not name.startswith(prefix):
+            continue
+        p = os.path.join(folder, name)
+        try:
+            if os.path.getsize(p) < min_bytes:
+                continue
+        except FileNotFoundError:
+            continue
+        dt = parse_dt_from_filename(name)
+        if not dt:
+            continue
+        if start_dt <= dt <= end_dt:
+            out.append((dt, p))
+    out.sort(key=lambda t: t[0])
+    return [p for _, p in out]
+
+def get_image_range_for_period(config, specified_date):
+    # 05:00 of the given day -> 05:00 next day
+    start_dt = datetime.datetime.combine(specified_date, datetime.time(5, 0, 0))
+    end_dt = start_dt + datetime.timedelta(days=1)
+
+    day_folder = os.path.join(
+        config['image_output']['root_folder'],
+        specified_date.strftime(config['image_output']['folder_structure'])
+    )
+    next_day = specified_date + datetime.timedelta(days=1)
+    next_day_folder = os.path.join(
+        config['image_output']['root_folder'],
+        next_day.strftime(config['image_output']['folder_structure'])
+    )
+
+    prefix = config['image_output'].get('filename_prefix') or ''
+    selected = []
+    selected += collect_images_in_window(day_folder, start_dt, end_dt, prefix=prefix)
+    selected += collect_images_in_window(next_day_folder, start_dt, end_dt, prefix=prefix)
+    selected.sort()
+
+    if not selected:
+        return None, None, []
+
+    return selected[0], selected[-1], selected
 
 def create_timelapse(config, date=None, upload=True, debug=False, only_upload=False):
     # Get the specified or previous day's date
@@ -23,7 +84,6 @@ def create_timelapse(config, date=None, upload=True, debug=False, only_upload=Fa
     else:
         specified_date = datetime.date.today() - datetime.timedelta(days=1)
 
-    # Convert date to string format
     specified_date_str = specified_date.strftime('%Y/%m/%d')
 
     # Generate the video filename and video parameters
@@ -37,96 +97,33 @@ def create_timelapse(config, date=None, upload=True, debug=False, only_upload=Fa
         video_folder = "/var/www/html/public/video-debug/"
     else:
         video_folder = os.path.join(config['video_output']['root_folder'], specified_date.strftime(config['video_output']['folder_structure']))
-
     video_path = os.path.join(video_folder, video_filename)
 
-    # Get the image folder path for the specified date
-    image_folder = os.path.join(config['image_output']['root_folder'], specified_date.strftime(config['image_output']['folder_structure']))
-
-    # Check if the image folder exists
-    if not os.path.exists(image_folder):
-        log_message(f"No images found for {specified_date_str}")
-        #return
-
-    # Create the timelapse video folder if it doesn't exist
+    # Ensure output folder exists
     os.makedirs(video_folder, exist_ok=True)
 
-    # Identify the starting and ending images
-    start_time_str = specified_date.strftime('_%Y_%m_%d_05_00_00')
-    end_time_str = (specified_date + datetime.timedelta(days=1)).strftime('_%Y_%m_%d_05_00_00')
-    start_image, end_image, selected_images = get_image_range_for_period(image_folder, start_time_str, end_time_str)
-    
+    # Identify the starting and ending images (05:00 → 05:00 window)
+    start_image, end_image, selected_images = get_image_range_for_period(config, specified_date)
 
     if not only_upload:
-       ff_script.ffmpeg_command(image_folder, video_path, config, selected_images)
+        if not selected_images:
+            log_message(f"No images found in 05:00→05:00 window for {specified_date_str}")
+            return
+        # Build the video (ffmpeg_command now takes absolute image paths)
+        ok = ff_script.ffmpeg_command(video_path, config, selected_images)
+        if not ok:
+            log_message("FFmpeg failed. Skipping upload.")
+            return
 
-    # Upload file
+    # Upload file (only if exists and enabled)
     if upload and config.get('video_upload', {}).get('enabled', False):
+        if not os.path.exists(video_path):
+            log_message(f"Video not found at {video_path}; skipping upload.")
+            return
         upload_script = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'scripts', 'upload-timelapse-video.py')
-        date_arg = specified_date.strftime('%Y-%m-%d')  # Format the date as 'YYYY-MM-DD'
+        date_arg = specified_date.strftime('%Y-%m-%d')
         upload_command = ['python', upload_script, '--file', video_path, '--date', date_arg]
         subprocess.run(upload_command, check=True)
-
-import os
-
-def get_images_from_folder(folder, start_time=None, end_time=None, min_size_kb=30):
-    min_size_bytes = min_size_kb * 1024  # Convert KB to bytes
-
-    images = sorted([img for img in os.listdir(folder) if img.endswith('.jpg') and os.path.getsize(os.path.join(folder, img)) > min_size_bytes],
-                    key=lambda x: os.path.getctime(os.path.join(folder, x)))
-
-    if start_time is None and end_time is None:
-        return images
-
-    selected_images = []
-
-    for img in images:
-        img_path = os.path.join(folder, img)
-        img_date_str = datetime.datetime.fromtimestamp(os.path.getctime(img_path)).strftime('%Y_%m_%d_%H_%M_%S')
-        img_datetime = datetime.datetime.strptime(img_date_str, '%Y_%m_%d_%H_%M_%S')
-
-        if start_time and img_datetime < start_time:
-            continue
-
-        if end_time and img_datetime > end_time:
-            continue
-
-        selected_images.append(img)
-
-    return selected_images
-
-def get_image_range_for_period(image_folder, start_time_str, end_time_str):
-    start_datetime = datetime.datetime.strptime(start_time_str, '_%Y_%m_%d_%H_%M_%S')
-    end_datetime = datetime.datetime.strptime(end_time_str, '_%Y_%m_%d_%H_%M_%S')
-
-    # Get images from the first day (05:00 to midnight)
-    first_day_images = get_images_from_folder(image_folder, start_time=start_datetime)
-
-    # Calculate the next day date and its folder
-    next_day_date = (datetime.datetime.strptime(start_time_str, '_%Y_%m_%d_%H_%M_%S').date() + datetime.timedelta(days=1))
-    next_day_folder = os.path.join(config['image_output']['root_folder'], next_day_date.strftime('%Y/%m/%d'))
-
-    # If the next_day_folder doesn't exist, create it
-    if not os.path.exists(next_day_folder):
-        os.makedirs(next_day_folder, exist_ok=True)
-
-    # For every image after midnight, move them to the next_day_folder
-    for img in os.listdir(image_folder):
-        if img.startswith(next_day_date.strftime('%Y_%m_%d')):
-            os.rename(os.path.join(image_folder, img), os.path.join(next_day_folder, img))
-
-    # Now, get images from the next day (midnight to 05:00)
-    second_day_images = get_images_from_folder(next_day_folder, end_time=end_datetime)
-
-    # Combine lists
-    all_images = first_day_images + second_day_images
-
-    if not all_images:
-        return None, None, []
-
-    return all_images[0], all_images[-1], all_images
-
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create a timelapse video.')
