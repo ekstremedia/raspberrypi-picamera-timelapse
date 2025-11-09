@@ -1,3 +1,5 @@
+This is now archived for the new version: https://github.com/ekstremedia/raspilapse
+
 # Raspberry Pi Python Timelapse script using Picamera V3 cameras
 [![Video](https://img.youtube.com/vi/o0m9SC9ShTE/maxresdefault.jpg)](https://www.youtube.com/watch?v=o0m9SC9ShTE)
 
